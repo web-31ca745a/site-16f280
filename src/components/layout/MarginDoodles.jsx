@@ -73,7 +73,46 @@ const MarginDoodles = ({ side, activeTab }) => {
     // Check if this tab uses images or SVG paths
     const usesImages = Boolean(doodleImages[activeTab]);
     const doodles = usesImages ? doodleImages[activeTab][side] : (doodlePaths[activeTab] || doodlePaths.home);
-    const positionsBySide = {
+    
+    // Tab-specific positions for polaroids
+    const polaroidPositions = {
+        home: {
+            left: [
+                { top: 6, left: 10, rotation: -10 },
+                { top: 52, left: 20, rotation: 9 }
+            ],
+            right: [
+                { top: 8, left: 18, rotation: 7 }
+            ]
+        },
+        love: {
+            left: [
+                { top: 6, left: 10, rotation: -10 },
+                { top: 26, left: 42, rotation: 9 },
+                { top: 46, left: 18, rotation: -6 },
+                { top: 66, left: 56, rotation: 7 }
+            ],
+            right: [
+                { top: 8, left: 18, rotation: 7 },
+                { top: 30, left: 58, rotation: -9 },
+                { top: 50, left: 26, rotation: 5 },
+                { top: 64, left: 64, rotation: -7 }
+            ]
+        },
+        future: {
+            left: [
+                { top: 6, left: 10, rotation: -10 },
+                { top: 26, left: 42, rotation: 9 },
+                { top: 46, left: 18, rotation: -6 }
+            ],
+            right: [
+                { top: 8, left: 18, rotation: 7 },
+                { top: 30, left: 58, rotation: -9 }
+            ]
+        }
+    };
+    
+    const positionsBySide = polaroidPositions[activeTab] || {
         left: [
             { top: 6, left: 10, rotation: -10 },
             { top: 26, left: 42, rotation: 9 },
