@@ -29,7 +29,7 @@ const LoginGate = ({ onUnlock }) => {
             localStorage.setItem(storedKey, 'true');
             onUnlock();
         } else {
-            setError('Nope, try again.');
+            setError("Username hint: that's not my name.");
         }
         setLoading(false);
     };
@@ -43,7 +43,7 @@ const LoginGate = ({ onUnlock }) => {
                         <div className="w-full md:w-1/2 space-y-4">
                             <p className="font-hand text-4xl text-amber-300 drop-shadow-md">WHO IS THIS FOR?</p>
                             <p className="font-hand text-2xl text-cream/80 leading-8">
-                                Type our little passphrase to open the box. It&apos;s tucked away until you say the magic words. Username hint: that&apos;s not my name.
+                                Type our little passphrase to open the box. It&apos;s tucked away until you say the magic words.
                             </p>
                         </div>
                         <div className="w-full md:w-1/2">
