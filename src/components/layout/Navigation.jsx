@@ -14,7 +14,7 @@ const tabs = [
 const Navigation = ({ activeTab, onTabChange }) => {
     return (
         <nav className="sticky top-0 z-30 w-full mb-0">
-            <div className="flex gap-3 md:gap-2 overflow-hidden">
+            <div className="flex gap-3 md:gap-2 overflow-x-auto overflow-y-hidden no-scrollbar pb-1">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}

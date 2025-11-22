@@ -53,3 +53,31 @@ React 18.2 + Vite 5 + Tailwind CSS 3.4 + Framer Motion + Howler.js
 ### Error Handling
 - Defensive checks before DOM/audio operations (`if (!sound) return`)
 - No formal error boundaries, rely on React defaults
+
+## DrawTogether Component - Collaborative Drawing Plan
+
+The `DrawTogether` component in `TabFuture` allows for collaborative drawing between you and Bella.
+
+### Workflow:
+1. **You draw a base image** - Draw half of something meaningful (e.g., half a butterfly, half a heart, etc.)
+2. **Download your drawing** - Use the Download button to save it as PNG
+3. **Add to project** - Place the downloaded image in `/public/images/` (e.g., `base-drawing.png`)
+4. **Set as base image** - In `TabFuture.jsx`, pass it to DrawTogether:
+   ```jsx
+   <DrawTogether baseImage="/images/base-drawing.png" />
+   ```
+5. **She completes it** - When Bella visits the site, your drawing loads as the background and she can add to it or complete it
+
+### Technical Details:
+- Canvas dimensions fixed at 800x600 internally for cross-device consistency
+- Displays responsively with 4:3 aspect ratio (max-width: 4xl)
+- Coordinates scale properly between mobile and desktop
+- Drawing persists in localStorage (saved automatically)
+- Features: Undo, Save, Download, Clear, 10 colors, pen/eraser tools
+- Touch-enabled for mobile drawing
+
+### Suggested Ideas:
+- Half a blue morpho butterfly (ties into constellation game theme)
+- Two hands reaching toward each other
+- A landscape she can add to
+- Half a heart or constellation pattern
