@@ -4,6 +4,8 @@ import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
 
 const TabFuture = () => {
+    const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
+    
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -26,7 +28,7 @@ const TabFuture = () => {
                         transition={{ delay: index * 0.1, duration: 0.6 }}
                         className="text-3xl leading-[42px] text-lis-light font-hand font-bold mb-8 drop-shadow-sm"
                     >
-                        {paragraph}
+                        {hideText ? '████████████████████' : paragraph}
                     </motion.p>
                 ))}
             </div>

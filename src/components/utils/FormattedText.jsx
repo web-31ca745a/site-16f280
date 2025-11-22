@@ -6,6 +6,13 @@ import React from 'react';
 // __text__ = emphasis color
 
 const FormattedText = ({ text, className = "" }) => {
+    // Check if text should be hidden (for preview sharing)
+    const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
+    
+    if (hideText) {
+        return <span className={className}>████████████████████</span>;
+    }
+    
     const parseText = (text) => {
         const parts = [];
         let currentIndex = 0;

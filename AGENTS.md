@@ -10,6 +10,13 @@
 ## Repo Remote
 - Current remote: `origin` at `http://192.168.50.117:30008/imakesound/bella-apology-site.git` (master branch)
 
+## Environment Variables
+- `VITE_HIDE_TEXT` - Set to `'true'` in `.env` to hide personal text content (for sharing preview)
+  - Affects: `FormattedText` component and `TabFuture` paragraphs
+  - Replaces text with block characters (████)
+  - Restart dev server after changing
+  - `.env` is gitignored - safe to toggle locally
+
 ## Tech Stack
 React 18.2 + Vite 5 + Tailwind CSS 3.4 + Framer Motion + Howler.js
 
