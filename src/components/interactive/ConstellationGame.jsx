@@ -200,29 +200,28 @@ const ConstellationGame = () => {
     };
 
     return (
-        <div className="w-full relative group">
+        <div className="w-full space-y-6">
             {/* Canvas Container with Deep Space Look */}
-            <div className="w-full h-64 rounded-lg overflow-hidden relative bg-gradient-to-b from-[#050510] via-[#0a0a2a] to-[#050510] border-2 border-white/20 shadow-inner">
+            <div className="w-full h-64 rounded-soft overflow-hidden relative bg-gradient-to-b from-[#050510] via-[#0a0a2a] to-[#050510] border-2 border-white/20 shadow-brutal">
                 <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
             </div>
 
-            {/* Slider Control */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 max-w-sm z-10">
-                <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.005"
-                    value={progress}
-                    onChange={handleSliderChange}
-                    className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors"
-                    style={{
-                        backgroundImage: `linear-gradient(to right, #60a5fa ${(1 - progress) * 100}%, rgba(255,255,255,0.1) ${(1 - progress) * 100}%)`
-                    }}
-                />
-                <div className="flex justify-between text-xs font-mono text-lis-blue/50 mt-2 px-1">
-                    <span>ALIGNED</span>
-                    <span>CHAOS</span>
+            {/* Slider Control - Below Canvas */}
+            <div className="w-full max-w-md mx-auto space-y-3">
+                <div className="relative">
+                    <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.005"
+                        value={progress}
+                        onChange={handleSliderChange}
+                        className="slider-constellation w-full"
+                    />
+                </div>
+                <div className="flex justify-between text-sm font-mono text-lis-blue/70 px-2">
+                    <span className="tracking-wide">ALIGNED</span>
+                    <span className="tracking-wide">CHAOS</span>
                 </div>
             </div>
         </div>

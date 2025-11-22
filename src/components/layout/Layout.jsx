@@ -23,7 +23,7 @@ const Layout = ({ children, activeTab, onTabChange }) => {
             <main className="relative z-20 w-full max-w-5xl mx-auto min-h-screen flex flex-col p-4 md:p-8">
                 <Navigation activeTab={activeTab} onTabChange={onTabChange} />
 
-                <div className="flex-grow mt-8 bg-lis-dark/90 backdrop-blur-sm border-4 border-brutal-black shadow-brutal-lg p-2 md:p-10 relative overflow-hidden">
+                <div className="flex-grow bg-lis-dark/90 backdrop-blur-sm border-4 border-brutal-black shadow-brutal-lg p-2 md:p-10 relative">
                     {children}
                 </div>
             </main>

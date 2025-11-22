@@ -13,16 +13,16 @@ const tabs = [
 
 const Navigation = ({ activeTab, onTabChange }) => {
     return (
-        <nav className="sticky top-0 z-30 w-full mb-4">
-            <div className="flex overflow-x-auto pb-2 md:pb-0 gap-3 md:gap-2 no-scrollbar px-2">
+        <nav className="sticky top-0 z-30 w-full mb-0">
+            <div className="flex gap-3 md:gap-2 overflow-hidden">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => onTabChange(tab.id)}
                         className={twMerge(
-                            "flex-shrink-0 px-4 py-3 font-hand text-base md:text-lg font-bold border-2 transition-all duration-200 rounded-soft",
+                            "flex-shrink-0 px-4 py-3 font-hand text-base md:text-lg font-bold border-2 border-b-0 transition-all duration-200 rounded-t-lg",
                             activeTab === tab.id
-                                ? "bg-lis-blue text-brutal-white border-lis-darkblue/40 shadow-soft-lg translate-y-0 scale-105"
+                                ? "bg-lis-blue text-brutal-white border-lis-darkblue/40 shadow-soft-lg translate-y-0"
                                 : "bg-lis-lavender text-lis-dark border-lis-dark/30 shadow-soft hover:bg-lis-pink hover:-translate-y-1 hover:shadow-soft-lg"
                         )}
                     >
