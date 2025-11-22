@@ -11,7 +11,7 @@ const TabChoice = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto space-y-8 pb-12 px-4"
+            className="max-w-2xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
             <h2 className="text-4xl font-hand text-white bg-lis-purple/80 backdrop-blur-sm border-2 border-white/40 shadow-soft-lg text-center mb-8 px-6 py-4 font-bold mx-auto inline-block rounded-soft drop-shadow-md">
                 Your Choice

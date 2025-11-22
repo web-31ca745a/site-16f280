@@ -15,7 +15,7 @@ const TabLove = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full pb-12 px-4"
+            className="w-full pb-12 px-0 md:px-4"
         >
             {/* Wide text content - no polaroids interfering */}
             <div className="max-w-4xl mx-auto mb-12 cosmic-card hand-border space-y-6">
@@ -42,7 +42,7 @@ const TabLove = () => {
                             </motion.div>
                         );
                     }
-                    
+
                     return (
                         <motion.p
                             key={index}

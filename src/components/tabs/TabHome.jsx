@@ -9,7 +9,7 @@ const TabHome = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center space-y-8 px-4"
+            className="flex flex-col items-center space-y-8 px-0 md:px-4"
         >
             <div className="w-full max-w-2xl cosmic-card hand-border space-y-8">
                 <div className="aspect-video bg-brutal-black relative overflow-hidden border-2 border-white/20 rounded-soft shadow-inner">
