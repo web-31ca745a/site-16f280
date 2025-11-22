@@ -7,6 +7,9 @@
 - `npm run lint` - Run ESLint (no warnings allowed)
 - No test suite configured
 
+## Repo Remote
+- Current remote: `origin` at `http://192.168.50.117:30008/imakesound/bella-apology-site.git` (master branch)
+
 ## Tech Stack
 React 18.2 + Vite 5 + Tailwind CSS 3.4 + Framer Motion + Howler.js
 
