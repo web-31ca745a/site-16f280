@@ -79,9 +79,6 @@ const LoginGate = ({ onUnlock }) => {
                                 >
                                     {loading ? 'Opening...' : 'Open the box'}
                                 </button>
-                                <p className="text-xs text-cream/50 font-mono">
-                                    Tip: set your own creds with <code className="text-amber-200">VITE_APP_USERNAME</code> / <code className="text-amber-200">VITE_APP_PASSCODE</code> and rebuild.
-                                </p>
                             </form>
                         </div>
                     </div>
