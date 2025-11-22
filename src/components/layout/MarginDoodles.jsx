@@ -20,6 +20,12 @@ const doodlePaths = {
         // Up arrow
         "M12 4v16M5 11l7-7 7 7"
     ],
+    memories: [
+        // Polaroid frame
+        "M5 3h14c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2zm0 4h14M9 17h6M9 11a3 3 0 106 0 3 3 0 00-6 0z",
+        // Sparkle
+        "M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5L12 2zM6 16l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3zM18 16l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"
+    ],
     future: [
         // Path
         "M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0",
@@ -54,6 +60,16 @@ const doodleImages = {
             { src: '/images/doodles/sketch-animals.webp', alt: 'Sketch character doodles', caption: 'Sketches' },
             { src: '/images/doodles/more-doodles.webp', alt: 'More doodles', caption: 'More art' },
             { src: '/images/her-sketches-nature.webp', alt: 'Nature sketches', caption: 'Her art' }
+        ]
+    },
+    memories: {
+        left: [
+            { src: '/images/memories/sleepy-call-landscape.webp', alt: 'Her asleep on call', caption: 'sleepy call' },
+            { src: '/images/memories/fruit-goggles-2.webp', alt: 'Fruit by the foot glasses', caption: 'fruit goggles' }
+        ],
+        right: [
+            { src: '/images/memories/minecraft-base.webp', alt: 'Minecraft base', caption: 'our base' },
+            { src: '/images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bunny and bedroom', caption: 'bunny room' }
         ]
     },
     future: {
@@ -97,6 +113,16 @@ const MarginDoodles = ({ side, activeTab }) => {
                 { top: 30, left: 58, rotation: -9 },
                 { top: 50, left: 26, rotation: 5 },
                 { top: 64, left: 64, rotation: -7 }
+            ]
+        },
+        memories: {
+            left: [
+                { top: 10, left: 14, rotation: -9 },
+                { top: 50, left: 28, rotation: 8 }
+            ],
+            right: [
+                { top: 16, left: 36, rotation: 10 },
+                { top: 54, left: 62, rotation: -8 }
             ]
         },
         future: {
@@ -156,7 +182,7 @@ const MarginDoodles = ({ side, activeTab }) => {
                                     style={{
                                         top: `${pos.top}%`,
                                         left: `${pos.left}%`,
-                                        width: '160px',
+                                        width: '190px',
                                         rotate: pos.rotation
                                     }}
                                     initial={{
