@@ -1,0 +1,206 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const doodlePaths = {
+    home: [
+        // Star
+        "M12 2l3 7h7l-5 4 2 7-6-4-6 4 2-7-5-4h7z",
+        // Shooting star
+        "M2 2l20 20M22 22l-5-5M22 22l-5 5"
+    ],
+    apology: [
+        // Broken heart
+        "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z",
+        // Teardrop
+        "M12 22c4.97 0 9-4.03 9-9 0-4.97-9-13-9-13S3 8.03 3 13c0 4.97 4.03 9 9 9z"
+    ],
+    growth: [
+        // Leaf
+        "M12 2C7.5 2 4 6.5 4 12s4.5 10 8 10 8-5.5 8-10S16.5 2 12 2zM12 22v-8",
+        // Up arrow
+        "M12 4v16M5 11l7-7 7 7"
+    ],
+    future: [
+        // Path
+        "M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0",
+        // Map marker
+        "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+    ],
+    choice: [
+        // Question mark
+        "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+    ]
+};
+
+const doodleImages = {
+    home: {
+        left: [
+            { src: '/images/polaroids/IMG_20251121_135225_990.jpg', alt: 'First night', caption: 'first night' },
+            { src: '/images/polaroids/Screenshot_20240726-220423.webp', alt: 'Us sketch', caption: 'us' }
+        ],
+        right: [
+            { src: '/images/polaroids/Screenshot_20241126-013719.webp', alt: 'Me + you', caption: 'me + you' }
+        ]
+    },
+    love: {
+        left: [
+            { src: '/images/her-kisses.webp', alt: 'Her with kiss marks', caption: 'Beautiful' },
+            { src: '/images/her-beanie.webp', alt: 'Her in orange beanie', caption: 'So cute' },
+            { src: '/images/her-photo.webp', alt: 'Her photo', caption: 'Gorgeous' },
+            { src: '/images/her-painting-aurora.webp', alt: 'Aurora painting', caption: 'Her painting' }
+        ],
+        right: [
+            { src: '/images/doodles/colored-animals.webp', alt: 'Colorful character doodles', caption: 'Doodles' },
+            { src: '/images/doodles/sketch-animals.webp', alt: 'Sketch character doodles', caption: 'Sketches' },
+            { src: '/images/doodles/more-doodles.webp', alt: 'More doodles', caption: 'More art' },
+            { src: '/images/her-sketches-nature.webp', alt: 'Nature sketches', caption: 'Her art' }
+        ]
+    },
+    future: {
+        left: [
+            { src: '/images/polaroids/labyrinth.webp', alt: 'Labyrinth movie night', caption: 'Labyrinth night' },
+            { src: '/images/polaroids/lastofus2.webp', alt: 'The Last of Us Part II', caption: 'TLOU Pt.2' },
+            { src: '/images/polaroids/mariokart8.webp', alt: 'Mario Kart 8 cover', caption: 'Mario Ka- maybe not this one' }
+        ],
+        right: [
+            { src: '/images/polaroids/littlenightmares3.webp', alt: 'Little Nightmares 3 cover', caption: 'Little Nightmares 3' },
+            { src: '/images/polaroids/prisoner_azkaban.webp', alt: 'Prisoner of Azkaban cover', caption: 'Prisoner of Azkaban' }
+        ]
+    }
+};
+
+const MarginDoodles = ({ side, activeTab }) => {
+    // Check if this tab uses images or SVG paths
+    const usesImages = Boolean(doodleImages[activeTab]);
+    const doodles = usesImages ? doodleImages[activeTab][side] : (doodlePaths[activeTab] || doodlePaths.home);
+    const positionsBySide = {
+        left: [
+            { top: 6, left: 10, rotation: -10 },
+            { top: 26, left: 42, rotation: 9 },
+            { top: 46, left: 18, rotation: -6 },
+            { top: 66, left: 56, rotation: 7 },
+            { top: 78, left: 30, rotation: -4 }
+        ],
+        right: [
+            { top: 8, left: 18, rotation: 7 },
+            { top: 30, left: 58, rotation: -9 },
+            { top: 50, left: 26, rotation: 5 },
+            { top: 64, left: 64, rotation: -7 },
+            { top: 74, left: 40, rotation: 4 }
+        ]
+    };
+
+    return (
+        <div className={`relative w-full h-full pointer-events-none ${usesImages ? 'opacity-90' : 'opacity-30'}`}>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full h-full"
+                >
+                    {usesImages ? (
+                        // Render polaroid-style images for love tab
+                        doodles.map((doodle, index) => {
+                            const positions = positionsBySide[side] || positionsBySide.left;
+                            const pos = positions[index] || positions[positions.length - 1];
+
+                            return (
+                                <motion.div
+                                    key={index}
+                                    drag
+                                    dragMomentum={false}
+                                    dragElastic={0.1}
+                                    className="absolute cursor-move z-10 hover:z-50 pointer-events-auto"
+                                    style={{
+                                        top: `${pos.top}%`,
+                                        left: `${pos.left}%`,
+                                        width: '160px',
+                                        rotate: pos.rotation
+                                    }}
+                                    initial={{
+                                        scale: 0,
+                                        opacity: 0,
+                                        y: -50
+                                    }}
+                                    animate={{
+                                        scale: 1,
+                                        opacity: 1,
+                                        y: [0, -15, 0]
+                                    }}
+                                    transition={{
+                                        scale: {
+                                            duration: 0.8,
+                                            ease: "easeOut",
+                                            delay: index * 0.3
+                                        },
+                                        opacity: {
+                                            duration: 0.8,
+                                            ease: "easeOut",
+                                            delay: index * 0.3
+                                        },
+                                        y: {
+                                            duration: 6 + index * 2,
+                                            ease: "easeInOut",
+                                            repeat: Infinity,
+                                            repeatType: "reverse"
+                                        }
+                                    }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileDrag={{ scale: 1.1, zIndex: 100 }}
+                                >
+                                    {/* Polaroid frame */}
+                                    <div className="bg-brutal-white p-3 pb-8 border-2 border-lis-dark/20 shadow-brutal transition-shadow rounded-soft">
+                                        <div className="bg-lis-mint/50 overflow-hidden mb-2 border border-lis-dark/20 rounded-soft">
+                                            <img
+                                                src={doodle.src}
+                                                alt={doodle.alt}
+                                                className="w-full h-auto object-contain pointer-events-none select-none"
+                                                draggable="false"
+                                            />
+                                        </div>
+                                        <p className="font-hand text-lis-dark text-center text-lg leading-none font-bold select-none">{doodle.caption}</p>
+                                    </div>
+                                </motion.div>
+                            );
+                        })
+                    ) : (
+                        // Render SVG paths for other tabs
+                        doodles.map((path, index) => (
+                            <motion.svg
+                                key={index}
+                                viewBox="0 0 24 24"
+                                className="absolute w-12 h-12 text-cream"
+                                style={{
+                                    top: `${(index + 1) * 20}%`,
+                                    left: side === 'left' ? `${Math.random() * 50}%` : `${50 + Math.random() * 40}%`,
+                                    transform: `rotate(${Math.random() * 360}deg)`
+                                }}
+                            >
+                                <motion.path
+                                    d={path}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="0.5"
+                                    initial={{ pathLength: 0 }}
+                                    animate={{ pathLength: 1 }}
+                                    transition={{
+                                        duration: 2,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                        repeatType: "reverse",
+                                        repeatDelay: 1
+                                    }}
+                                />
+                            </motion.svg>
+                        ))
+                    )}
+                </motion.div>
+            </AnimatePresence>
+        </div>
+    );
+};
+
+export default MarginDoodles;

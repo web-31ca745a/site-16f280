@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;600&family=Patrick+Hand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-lis-darker text-lis-light font-body overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-hand;
+  }
+}
+
+/* Custom Scrollbar - Neobrutalist style */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-lis-dark border-l-4 border-brutal-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-lis-blue border-2 border-brutal-black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-lis-teal;
+}
+
+@layer utilities {
+  .cosmic-card {
+    @apply bg-lis-darker/80 backdrop-blur-md border-2 border-white/80 shadow-soft-lg rounded-soft p-8;
+    box-shadow: 0 0 15px rgba(124, 185, 232, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hand-border {
+    border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+  }
+}
