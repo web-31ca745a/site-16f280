@@ -33,14 +33,10 @@ export const letterContent = {
     choice: {
         paragraphs: [
             "**I still love you bella**. I would like to get to know you again, to try and build something new with you, something stronger.",
-            "I want to keep talking to you, to keep feeling anxiously in love. At worst maybe we'll ~~just be friends~~ realize it's not going to work out, but at best we can build something stronger than we ever had before.",
+            "I want to keep talking to you, to keep feeling anxiously in love. We can take things slow, get to know each other again. At worst maybe we'll realize it's not going to work out, but at best we can build something stronger than we ever had before.",
             "I still think you could be the love of my life. If you 100% can't see yourself with me, I'm ready to let go, but I need to know I gave it my best try.",
-            "So yeah, if any part of you wants to go down this road with me, I would love it, I would love to get to know you again, I would love to build something new with you because **I really do love you**. But if you don't want to at all then I'll accept that.",
-            "The distance doesn't scare me anymore, and we can talk about it.",
-            "I'm not asking you to take me back right now. I know we both have growing to do, and the old relationship had real problems. What I'm asking is: __are you willing to give me a chance to rebuild something new with you?__ To take things slow, to get to know each other again, to see if we can create something stronger than what we had before?",
-            "I'm ready to put in the work. I'm ready to show up differently. But I can't do it alone - I need you to meet me partway. Not immediately, not all at once, but... eventually.",
-            "So my question is simple: __Is there any part of you that wants to try?__ If yes, I'm all in. If no, I'll accept that and let you go. But I need a real answer either way.",
-            "You don't have to decide right this second. Take two weeks to really think about it - about what you want, about whether you believe I can actually change, about whether you're willing to give this a chance. We can talk during that time if you have questions."
+            "So my question is simple: __Is there any part of you that wants to try?__ I'm ready to put in the work, to show up differently. But I can't do it alone, I need you to meet me partway. If yes, I'm all in. If no, I'll accept that and let you go.",
+            "You don't have to decide right this second. Take two weeks to really think about it, about what you want, about whether you believe I can actually change, about whether you're willing to give this a chance. We can talk during that time if you have questions."
         ]
     }
 };
