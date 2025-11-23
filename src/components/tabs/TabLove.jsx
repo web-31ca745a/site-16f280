@@ -32,7 +32,7 @@ const TabLove = () => {
                             >
                                 <WalmartCard imagePath="/images/cat-sweater.webp" />
                                 <p className="text-3xl leading-[42px] text-lis-light font-hand font-bold drop-shadow-sm">
-                                    <FormattedText text="You're the most beautiful girl on the entire planet, your fashion also really fucking leveled up. One of my favorite pictures you sent was you at Walmart - you were wearing that cat sweater and I think your hair was straight, you looked fucking gorgeous and all I said was something like ~~'cute'~~ even though I was honestly jaw dropped. I regret not praising you every time you sent a picture of yourself because I would honestly always have heart eyes for you, you're fucking jaw dropping, you deserved to know what I actually thought." />
+                                    <FormattedText text="You're the most beautiful girl on the entire planet, your fashion also really fucking leveled up. One of my favorite pictures you sent was of you wearing that cat sweater and I think your hair was straight, you looked fucking gorgeous and all I said was something like ~~'cute'~~ even though I was honestly jaw dropped. I regret not praising you every time you sent a picture of yourself because I would honestly always have heart eyes for you, you're fucking jaw dropping, you deserved to know what I actually thought." />
                                 </p>
                                 <div className="clear-both"></div>
                             </motion.div>
