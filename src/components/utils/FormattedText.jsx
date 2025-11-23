@@ -45,7 +45,7 @@ const FormattedText = ({ text, className = "" }) => {
                     <button
                         key={key++}
                         onClick={() => setShowVideo(videoPath)}
-                        className="text-blue-400 font-extrabold underline decoration-2 decoration-blue-400/50 hover:decoration-blue-400 hover:text-blue-300 transition-all cursor-pointer hover:scale-105 inline-block"
+                        className="text-blue-400 font-extrabold underline decoration-2 decoration-blue-400/50 hover:decoration-blue-400 hover:text-blue-300 transition-all cursor-pointer hover:scale-110 inline-block font-mono text-4xl"
                     >
                         {linkText}
                     </button>
@@ -97,7 +97,7 @@ const FormattedText = ({ text, className = "" }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-brutal-black/90 p-4"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-brutal-black/90 p-4"
                         onClick={() => setShowVideo(null)}
                     >
                         <div 
