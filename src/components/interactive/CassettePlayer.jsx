@@ -93,7 +93,16 @@ const CassettePlayer = () => {
                         </button>
 
                         {/* Cassette Visual */}
-                        <div className="bg-lis-dark border-2 border-lis-dark/30 p-2 mb-3 relative overflow-hidden h-24 flex items-center justify-center rounded-soft">
+                        <div className="bg-lis-dark border-2 border-lis-dark/30 p-2 mb-3 relative overflow-visible h-24 flex items-center justify-center rounded-soft">
+                            {/* Butterfly SVG on top left corner */}
+                            <div className="absolute -left-28 -top-36 w-36 h-36 pointer-events-none z-10">
+                                <img 
+                                    src="/cassetefly.svg" 
+                                    alt="Butterfly decoration" 
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            
                             <div className="absolute w-full h-1 bg-lis-dark/50 top-1/2 transform -translate-y-1/2"></div>
                             <div className={clsx("w-12 h-12 rounded-full border-4 border-lis-blue bg-lis-darker mx-2 flex items-center justify-center", isPlaying && "animate-spin-slow")}>
                                 <div className="w-2 h-2 bg-lis-blue rounded-full"></div>
