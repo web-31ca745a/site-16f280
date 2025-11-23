@@ -1,6 +1,15 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const butterflies = [
+    '/images/decor/doodlebutterfly1.svg',
+    '/images/decor/doodlebutterfly2.svg',
+    '/images/decor/doodlebutterfly3.svg',
+    '/images/decor/doodlebutterfly4.svg'
+];
+
+const starryDoodle = '/images/decor/starry-doodle-svgrepo-com.svg';
+
 const doodlePaths = {
     home: [
         // Star
@@ -173,6 +182,32 @@ const MarginDoodles = ({ side, activeTab }) => {
                         doodles.map((doodle, index) => {
                             const positions = positionsBySide[side] || positionsBySide.left;
                             const pos = positions[index] || positions[positions.length - 1];
+                            
+                            // Pick butterfly based on index and side to ensure variety
+                            const butterflyIndex = (index + (side === 'right' ? 2 : 0)) % butterflies.length;
+                            const butterfly = butterflies[butterflyIndex];
+                            
+                            // Randomly add starry doodle to some polaroids (about 30% chance)
+                            const showStarry = (index * 7 + (side === 'right' ? 3 : 1)) % 10 < 3;
+                            
+                            // Vary butterfly position (avoiding center and photo)
+                            // Keeping them in the white bottom margin area
+                            const butterflyPositions = [
+                                'bottom-2 right-2',
+                                'bottom-2 left-2',
+                                'bottom-3 right-1',
+                                'bottom-3 left-1'
+                            ];
+                            const butterflyPos = butterflyPositions[index % butterflyPositions.length];
+                            
+                            // Starry position - in the white margin area with butterfly
+                            const starryPositions = [
+                                'bottom-2 left-2',
+                                'bottom-2 right-2',
+                                'bottom-3 left-1',
+                                'bottom-3 right-1'
+                            ];
+                            const starryPos = starryPositions[index % starryPositions.length];
 
                             return (
                                 <motion.div
@@ -219,7 +254,7 @@ const MarginDoodles = ({ side, activeTab }) => {
                                     whileDrag={{ scale: 1.1, zIndex: 100 }}
                                 >
                                     {/* Polaroid frame */}
-                                    <div className="bg-brutal-white p-3 pb-8 border-2 border-lis-dark/20 shadow-brutal transition-shadow rounded-soft">
+                                    <div className="bg-brutal-white p-3 pb-8 border-2 border-lis-dark/20 shadow-brutal transition-shadow rounded-soft relative">
                                         <div className="bg-lis-mint/50 overflow-hidden mb-2 border border-lis-dark/20 rounded-soft">
                                             <img
                                                 src={doodle.src}
@@ -229,6 +264,24 @@ const MarginDoodles = ({ side, activeTab }) => {
                                             />
                                         </div>
                                         <p className="font-hand text-lis-dark text-center text-lg leading-none font-bold select-none">{doodle.caption}</p>
+                                        
+                                        {/* Butterfly decoration */}
+                                        <img 
+                                            src={butterfly}
+                                            alt=""
+                                            className={`absolute ${butterflyPos} w-12 h-12 opacity-100 pointer-events-none select-none`}
+                                            draggable="false"
+                                        />
+                                        
+                                        {/* Starry doodle - randomly on some polaroids */}
+                                        {showStarry && (
+                                            <img 
+                                                src={starryDoodle}
+                                                alt=""
+                                                className={`absolute ${starryPos} w-8 h-8 opacity-60 pointer-events-none select-none`}
+                                                draggable="false"
+                                            />
+                                        )}
                                     </div>
                                 </motion.div>
                             );

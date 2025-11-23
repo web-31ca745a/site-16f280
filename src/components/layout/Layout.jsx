@@ -15,9 +15,9 @@ const Layout = ({ children, activeTab, onTabChange }) => {
             </div>
 
             {/* Top Right Corner Vines SVG */}
-            <div className="fixed right-0 top-0 w-48 h-64 lg:w-64 lg:h-80 z-30 pointer-events-none">
+            <div className="fixed right-0 top-2 w-48 h-64 lg:w-64 lg:h-80 z-30 pointer-events-none hidden md:block">
                 <img 
-                    src="/cornervines.svg" 
+                    src="/images/decor/cornervines.svg" 
                     alt="Corner vines decoration" 
                     className="w-full h-full object-contain"
                 />
@@ -36,7 +36,7 @@ const Layout = ({ children, activeTab, onTabChange }) => {
                     {/* Top Left Butterfly SVG - positioned at corner of main box */}
                     <div className="absolute -left-20 -top-12 w-40 h-40 lg:-left-28 lg:-top-16 lg:w-56 lg:h-56 z-10 pointer-events-none">
                         <img 
-                            src="/path1.svg" 
+                            src="/images/decor/path1.svg" 
                             alt="Butterfly decoration" 
                             className="w-full h-full object-contain"
                         />
