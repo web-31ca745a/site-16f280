@@ -12,21 +12,6 @@ const TabGrowth = () => {
             transition={{ duration: 0.5 }}
             className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-lis-light/60 backdrop-blur-sm p-3 border-2 border-lis-teal/20 shadow-soft hover:shadow-soft-lg rotate-2 transform hover:rotate-0 transition-all duration-300 rounded-soft">
-                    <div className="bg-lis-mint/60 h-48 flex items-center justify-center border border-lis-dark/20 rounded-soft">
-                        <p className="text-lis-darker font-mono text-lg font-bold">Placeholder: Therapy Notes</p>
-                    </div>
-                    <p className="text-center font-hand text-lis-dark mt-3 text-xl font-bold">Working on it</p>
-                </div>
-                <div className="bg-lis-light/60 backdrop-blur-sm p-3 border-2 border-lis-pink/20 shadow-soft hover:shadow-soft-lg -rotate-2 transform hover:rotate-0 transition-all duration-300 rounded-soft">
-                    <div className="bg-lis-pink/60 h-48 flex items-center justify-center border border-lis-dark/20 rounded-soft">
-                        <p className="text-lis-darker font-mono text-lg font-bold">Placeholder: Journal</p>
-                    </div>
-                    <p className="text-center font-hand text-lis-dark mt-3 text-xl font-bold">Daily reflections</p>
-                </div>
-            </div>
-
             <div className="cosmic-card hand-border space-y-6 max-w-4xl mx-auto">
                 <h2 className="text-4xl font-hand text-white text-center mb-4 font-bold drop-shadow-md">
                     I'm Growing
