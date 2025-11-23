@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Parses text with special formatting markers:
@@ -91,8 +92,8 @@ const FormattedText = ({ text, className = "" }) => {
         <>
             <span className={className}>{parseText(text)}</span>
             
-            <AnimatePresence>
-                {showVideo && (
+            {showVideo && createPortal(
+                <AnimatePresence>
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -115,8 +116,9 @@ const FormattedText = ({ text, className = "" }) => {
                             </div>
                         </div>
                     </motion.div>
-                )}
-            </AnimatePresence>
+                </AnimatePresence>,
+                document.body
+            )}
         </>
     );
 };
