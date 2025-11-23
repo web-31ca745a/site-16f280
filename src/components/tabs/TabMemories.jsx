@@ -29,9 +29,9 @@ const MemoryPhoto = ({ src, alt, caption, side = 'left' }) => {
 
 const MinecraftGallery = () => {
     const shots = [
-        { src: '/images/memories/minecraft-base.webp', alt: 'Our Minecraft base', caption: 'our base' },
-        { src: '/images/memories/minecraft-garden.webp', alt: 'Minecraft garden we grew together', caption: 'the garden' },
-        { src: '/images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bedroom with our bunny', caption: 'bunny + bedroom' }
+        { src: '/images/memories/minecraft-house-exterior.webp', alt: 'Our Minecraft house exterior', caption: 'our house' },
+        { src: '/images/memories/minecraft-house-interior.webp', alt: 'Inside our Minecraft house', caption: 'inside our home' },
+        { src: '/images/memories/minecraft-lilypad-garden.webp', alt: 'Lilypad shaped garden', caption: 'lilypad garden' }
     ];
 
     return (

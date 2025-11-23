@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
+import FormattedText from '../utils/FormattedText';
 
 const TabFuture = () => {
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
@@ -12,9 +13,9 @@ const TabFuture = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto space-y-12 pb-12 relative px-0 md:px-4"
+            className="w-full max-w-4xl mx-auto space-y-12 pb-12 relative px-0 md:px-4"
         >
-            <div className="cosmic-card hand-border space-y-0 max-w-2xl mx-auto transform rotate-1">
+            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-1">
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
                     What I Want
                 </h2>
@@ -28,7 +29,7 @@ const TabFuture = () => {
                         transition={{ delay: index * 0.1, duration: 0.6 }}
                         className="text-3xl leading-[42px] text-lis-light font-hand font-bold mb-8 drop-shadow-sm"
                     >
-                        {hideText ? '████████████████████' : paragraph}
+                        {hideText ? '████████████████████' : <FormattedText text={paragraph} />}
                     </motion.p>
                 ))}
             </div>

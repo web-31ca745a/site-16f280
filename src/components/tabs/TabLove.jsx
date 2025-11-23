@@ -1,10 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { letterContent } from '../../data/letterContent';
-import { polaroids } from '../../data/polaroidData';
-import { postcards } from '../../data/postcardData';
-import DraggablePolaroid from '../interactive/DraggablePolaroid';
-import PostcardFlip from '../interactive/PostcardFlip';
 import WalmartCard from '../interactive/WalmartCard';
 import FormattedText from '../utils/FormattedText';
 

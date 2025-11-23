@@ -65,11 +65,12 @@ const doodleImages = {
     memories: {
         left: [
             { src: '/images/memories/sleepy-call-landscape.webp', alt: 'Her asleep on call', caption: 'sleepy call' },
+            { src: '/images/memories/minecraft-base.webp', alt: 'Minecraft base', caption: 'our base' },
             { src: '/images/memories/fruit-goggles-2.webp', alt: 'Fruit by the foot glasses', caption: 'fruit goggles' }
         ],
         right: [
-            { src: '/images/memories/minecraft-base.webp', alt: 'Minecraft base', caption: 'our base' },
-            { src: '/images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bunny and bedroom', caption: 'bunny room' }
+            { src: '/images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bunny and bedroom', caption: 'bunny room' },
+            { src: '/images/memories/minecraft-house-2.webp', alt: 'Another Minecraft house we built', caption: 'another home' }
         ]
     },
     future: {
@@ -118,7 +119,8 @@ const MarginDoodles = ({ side, activeTab }) => {
         memories: {
             left: [
                 { top: 10, left: 14, rotation: -9 },
-                { top: 50, left: 28, rotation: 8 }
+                { top: 38, left: 28, rotation: 8 },
+                { top: 66, left: 10, rotation: -6 }
             ],
             right: [
                 { top: 16, left: 36, rotation: 10 },

@@ -4,6 +4,7 @@ import TabHome from './components/tabs/TabHome';
 import TabApology from './components/tabs/TabApology';
 import TabGrowth from './components/tabs/TabGrowth';
 import TabLove from './components/tabs/TabLove';
+import TabMemories from './components/tabs/TabMemories';
 import TabFuture from './components/tabs/TabFuture';
 import TabChoice from './components/tabs/TabChoice';
 import LoginGate from './components/auth/LoginGate';
@@ -22,6 +23,8 @@ function App() {
                 return <TabGrowth />;
             case 'love':
                 return <TabLove />;
+            case 'memories':
+                return <TabMemories />;
             case 'future':
                 return <TabFuture />;
             case 'choice':

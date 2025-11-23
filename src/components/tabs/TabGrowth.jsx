@@ -10,7 +10,7 @@ const TabGrowth = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto space-y-8 pb-12 px-0 md:px-4"
+            className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="bg-lis-light/60 backdrop-blur-sm p-3 border-2 border-lis-teal/20 shadow-soft hover:shadow-soft-lg rotate-2 transform hover:rotate-0 transition-all duration-300 rounded-soft">
@@ -27,7 +27,7 @@ const TabGrowth = () => {
                 </div>
             </div>
 
-            <div className="cosmic-card hand-border space-y-6">
+            <div className="cosmic-card hand-border space-y-6 max-w-4xl mx-auto">
                 <h2 className="text-4xl font-hand text-white text-center mb-4 font-bold drop-shadow-md">
                     I'm Growing
                 </h2>

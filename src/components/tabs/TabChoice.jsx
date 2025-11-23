@@ -11,26 +11,24 @@ const TabChoice = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto space-y-8 pb-12 px-0 md:px-4"
+            className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
-            <h2 className="text-4xl font-hand text-white bg-lis-purple/80 backdrop-blur-sm border-2 border-white/40 shadow-soft-lg text-center mb-8 px-6 py-4 font-bold mx-auto inline-block rounded-soft drop-shadow-md">
-                Your Choice
-            </h2>
+            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform -rotate-1">
+                <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
+                    Your Choice
+                </h2>
 
-            <div className="space-y-6 mb-12">
                 {letterContent.choice.paragraphs.map((paragraph, index) => (
-                    <motion.div
+                    <motion.p
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 0.6 }}
-                        className={`cosmic-card hand-border p-6 pt-2 font-hand font-bold text-3xl leading-[42px] text-lis-light transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}
+                        className="text-3xl leading-[42px] text-lis-light font-hand font-bold mb-8 drop-shadow-sm"
                     >
-                        <p className="pt-1 drop-shadow-sm">
-                            <FormattedText text={paragraph} />
-                        </p>
-                    </motion.div>
+                        <FormattedText text={paragraph} />
+                    </motion.p>
                 ))}
             </div>
 
