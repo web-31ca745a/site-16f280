@@ -81,3 +81,65 @@ The `DrawTogether` component in `TabFuture` allows for collaborative drawing bet
 - Two hands reaching toward each other
 - A landscape she can add to
 - Half a heart or constellation pattern
+
+## AestheticPlayer Component - Audio Waveform Visualizer
+
+The `AestheticPlayer` component displays an audio player with reactive waveforms that respond to the audio in real-time.
+
+### Current Usage:
+- Currently used in `TabMemories` ("Our Moments") with test track
+- Audio file: `/audio/Syd Matters - Obstacles.mp3`
+
+### How to Add to Other Tabs:
+1. **Import the component** in the tab file:
+   ```jsx
+   import AestheticPlayer from '../interactive/AestheticPlayer';
+   ```
+
+2. **Add state management** (if you want a close button):
+   ```jsx
+   const [showPlayer, setShowPlayer] = useState(true);
+   ```
+
+3. **Place the player** in the JSX:
+   ```jsx
+   {showPlayer && (
+       <div className="max-w-4xl mx-auto mb-6">
+           <AestheticPlayer 
+               track={{ src: '/audio/Your-Audio-File.mp3' }}
+               onClose={() => setShowPlayer(false)}
+           />
+       </div>
+   )}
+   ```
+
+4. **Without close button** (player always visible):
+   ```jsx
+   <div className="max-w-4xl mx-auto mb-6">
+       <AestheticPlayer 
+           track={{ src: '/audio/Your-Audio-File.mp3' }}
+       />
+   </div>
+   ```
+
+### Technical Details:
+- Uses Howler.js with Web Audio API for real-time frequency analysis
+- Reactive waveform (64 frequency bins) with pastel pink/purple gradient
+- Background starfield animation matching site aesthetic
+- Features: Play/pause, seek by clicking waveform, time display
+- Mobile responsive with proper scaling
+- Dark background (`#2a2535`) with white sketchy border
+- Handwriting font for time display
+
+### To Replace Audio:
+1. Place new audio file in `/public/audio/`
+2. Update the `src` prop in the `track` object:
+   ```jsx
+   track={{ src: '/audio/New-Song.mp3' }}
+   ```
+
+### Styling Notes:
+- Max width: `max-w-3xl` (adjustable per tab)
+- Waveform colors: `#f9a8d4` (pastel pink) to `#d8b4fe` (pastel lavender)
+- Amplitude sensitivity: `0.7` (prevents clipping while staying reactive)
+- Border: `3px` white with `70%` opacity

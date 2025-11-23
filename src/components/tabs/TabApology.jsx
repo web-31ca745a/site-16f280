@@ -12,7 +12,7 @@ const TabApology = () => {
             transition={{ duration: 0.5 }}
             className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
-            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform -rotate-1">
+            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:-rotate-1">
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
                     I'm Sorry
                 </h2>

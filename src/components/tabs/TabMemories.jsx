@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { clsx } from 'clsx';
 import { letterContent } from '../../data/letterContent';
 import FormattedText from '../utils/FormattedText';
+import AestheticPlayer from '../interactive/AestheticPlayer';
 
 const MemoryPhoto = ({ src, alt, caption, side = 'left' }) => {
     return (
@@ -59,6 +60,8 @@ const MinecraftGallery = () => {
 };
 
 const TabMemories = () => {
+    const [showPlayer, setShowPlayer] = useState(true);
+
     const inlinePhotos = {
         1: {
             src: '/images/memories/sleepy-call-portrait.webp',
@@ -88,7 +91,17 @@ const TabMemories = () => {
             transition={{ duration: 0.5 }}
             className="w-full pb-12 px-0 md:px-4 space-y-10"
         >
-            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-1">
+            {/* Audio Player Test */}
+            {showPlayer && (
+                <div className="max-w-4xl mx-auto mb-6">
+                    <AestheticPlayer 
+                        track={{ src: '/audio/Syd Matters - Obstacles.mp3' }}
+                        onClose={() => setShowPlayer(false)}
+                    />
+                </div>
+            )}
+
+            <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:rotate-1">
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
                     What I Miss About Us
                 </h2>
