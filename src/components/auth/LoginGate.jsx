@@ -3,12 +3,33 @@ import Starfield from '../layout/Starfield';
 
 const LoginGate = ({ onUnlock }) => {
     const [username, setUsername] = useState('');
-    const [passcode, setPasscode] = useState('');
+    const [month, setMonth] = useState('');
+    const [day, setDay] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const storedKey = 'bella-login-ok';
     const expectedUser = (import.meta.env.VITE_APP_USERNAME || 'baby').trim().toLowerCase();
     const expectedPass = (import.meta.env.VITE_APP_PASSCODE || '08/28').trim();
+    
+    const months = [
+        { value: '01', label: 'January' },
+        { value: '02', label: 'February' },
+        { value: '03', label: 'March' },
+        { value: '04', label: 'April' },
+        { value: '05', label: 'May' },
+        { value: '06', label: 'June' },
+        { value: '07', label: 'July' },
+        { value: '08', label: 'August' },
+        { value: '09', label: 'September' },
+        { value: '10', label: 'October' },
+        { value: '11', label: 'November' },
+        { value: '12', label: 'December' }
+    ];
+    
+    const days = Array.from({ length: 31 }, (_, i) => {
+        const dayNum = i + 1;
+        return { value: dayNum.toString().padStart(2, '0'), label: dayNum.toString() };
+    });
 
     useEffect(() => {
         const remembered = localStorage.getItem(storedKey);
@@ -23,9 +44,9 @@ const LoginGate = ({ onUnlock }) => {
         setError('');
 
         const normalizedUser = username.trim().toLowerCase();
-        const normalizedPass = passcode.trim();
+        const formattedDate = month && day ? `${month}/${day}` : '';
 
-        if (normalizedUser && normalizedPass && normalizedUser === expectedUser && normalizedPass === expectedPass) {
+        if (normalizedUser && formattedDate && normalizedUser === expectedUser && formattedDate === expectedPass) {
             localStorage.setItem(storedKey, 'true');
             onUnlock();
         } else {
@@ -41,9 +62,9 @@ const LoginGate = ({ onUnlock }) => {
                 <div className="cosmic-card hand-border shadow-brutal-lg border-4 border-brutal-black/80 bg-lis-dark/90 backdrop-blur-md p-8 md:p-12 rounded-soft">
                     <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
                         <div className="w-full md:w-1/2 space-y-4">
-                            <p className="font-hand text-4xl text-amber-300 drop-shadow-md">WHO IS THIS FOR?</p>
+                            <p className="font-hand text-4xl text-amber-300 drop-shadow-md">Just for you</p>
                             <p className="font-hand text-2xl text-cream/80 leading-8">
-                                Type our little passphrase to open the box. It&apos;s tucked away until you say the magic words.
+                                Something I made just for you. Enter your name and our special date to unlock it.
                             </p>
                         </div>
                         <div className="w-full md:w-1/2">
@@ -61,16 +82,30 @@ const LoginGate = ({ onUnlock }) => {
                                     autoComplete="username"
                                 />
                                 <label className="block text-sm uppercase tracking-[0.2em] text-cream/60 font-mono">
-                                    Passphrase
+                                    Special Date (MM/DD)
                                 </label>
-                                <input
-                                    type="password"
-                                    value={passcode}
-                                    onChange={(e) => setPasscode(e.target.value)}
-                                    className="w-full bg-lis-dark/60 border-2 border-cream/20 focus:border-amber-300 text-cream font-hand text-2xl px-4 py-3 rounded-soft shadow-soft outline-none transition"
-                                    placeholder="MM/DD"
-                                    autoComplete="current-password"
-                                />
+                                <div className="flex gap-3">
+                                    <select
+                                        value={month}
+                                        onChange={(e) => setMonth(e.target.value)}
+                                        className="flex-1 bg-lis-dark/60 border-2 border-cream/20 focus:border-amber-300 text-cream font-hand text-xl px-4 py-3 rounded-soft shadow-soft outline-none transition cursor-pointer"
+                                    >
+                                        <option value="">Month</option>
+                                        {months.map(m => (
+                                            <option key={m.value} value={m.value}>{m.label}</option>
+                                        ))}
+                                    </select>
+                                    <select
+                                        value={day}
+                                        onChange={(e) => setDay(e.target.value)}
+                                        className="flex-1 bg-lis-dark/60 border-2 border-cream/20 focus:border-amber-300 text-cream font-hand text-xl px-4 py-3 rounded-soft shadow-soft outline-none transition cursor-pointer"
+                                    >
+                                        <option value="">Day</option>
+                                        {days.map(d => (
+                                            <option key={d.value} value={d.value}>{d.label}</option>
+                                        ))}
+                                    </select>
+                                </div>
                                 {error && <p className="text-lis-pink font-mono text-sm">{error}</p>}
                                 <button
                                     type="submit"
