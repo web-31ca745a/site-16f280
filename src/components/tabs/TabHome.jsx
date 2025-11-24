@@ -11,7 +11,7 @@ const TabHome = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center space-y-8 px-0 md:px-4"
         >
-            <div className="w-full max-w-2xl cosmic-card hand-border space-y-8">
+            <div className="w-full max-w-4xl cosmic-card hand-border space-y-8">
                 <div className="aspect-video bg-brutal-black relative overflow-hidden border-2 border-white/20 rounded-soft shadow-inner">
                     {/* Placeholder for Intro Video */}
                     <video
