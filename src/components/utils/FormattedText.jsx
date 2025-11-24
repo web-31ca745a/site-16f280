@@ -41,11 +41,13 @@ const FormattedText = ({ text, className = "" }) => {
             if (matchedText.startsWith('{{video:')) {
                 // Clickable video link
                 const videoContent = matchedText.slice(8, -2); // Remove {{video: and }}
-                const [videoPath, linkText] = videoContent.split('|');
+                const [videoPaths, linkText] = videoContent.split('|');
+                // Support multiple videos separated by comma
+                const videoArray = videoPaths.split(',').map(v => v.trim());
                 parts.push(
                     <button
                         key={key++}
-                        onClick={() => setShowVideo(videoPath)}
+                        onClick={() => setShowVideo(videoArray)}
                         className="text-blue-400 font-extrabold underline decoration-2 decoration-blue-400/50 hover:decoration-blue-400 hover:text-blue-300 transition-all cursor-pointer hover:scale-110 inline-block font-mono text-4xl"
                     >
                         {linkText}
@@ -98,11 +100,11 @@ const FormattedText = ({ text, className = "" }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-brutal-black/90 p-4"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-brutal-black/90 p-4 overflow-y-auto"
                         onClick={() => setShowVideo(null)}
                     >
                         <div 
-                            className="relative w-full max-w-4xl bg-lis-white border-2 border-lis-dark/30 shadow-soft-lg p-4 rounded-soft"
+                            className="relative w-full max-w-4xl bg-lis-white border-2 border-lis-dark/30 shadow-soft-lg p-4 rounded-soft my-auto"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
@@ -111,8 +113,12 @@ const FormattedText = ({ text, className = "" }) => {
                             >
                                 Close
                             </button>
-                            <div className="aspect-video bg-brutal-black border-2 border-lis-dark/30 flex items-center justify-center rounded-soft overflow-hidden">
-                                <video src={showVideo} controls autoPlay className="w-full h-full" />
+                            <div className="space-y-4">
+                                {(Array.isArray(showVideo) ? showVideo : [showVideo]).map((videoSrc, index) => (
+                                    <div key={index} className="aspect-video bg-brutal-black border-2 border-lis-dark/30 flex items-center justify-center rounded-soft overflow-hidden">
+                                        <video src={videoSrc} controls autoPlay={index === 0} className="w-full h-full" />
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </motion.div>

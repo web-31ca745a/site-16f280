@@ -14,7 +14,14 @@ const TabChoice = () => {
             className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
             <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:-rotate-1">
-                <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
+                {/* Video Box - Empty for now */}
+                <div className="aspect-video bg-brutal-black relative overflow-hidden border-2 border-white/20 rounded-soft shadow-inner mb-8">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <p className="text-lis-light font-hand text-2xl opacity-50">Video placeholder</p>
+                    </div>
+                </div>
+
+                <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] drop-shadow-md">
                     Your Choice
                 </h2>
 

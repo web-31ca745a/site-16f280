@@ -59,7 +59,7 @@ export const polaroids = {
             rotation: 4
         }
     ],
-    tab5: [ // What I Want tab
+    tab5: [ // What I Wish For tab
         {
             id: 10,
             image: "/images/polaroids/game-cover.jpg",

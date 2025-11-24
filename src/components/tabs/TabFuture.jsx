@@ -17,7 +17,7 @@ const TabFuture = () => {
         >
             <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:rotate-1">
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
-                    What I Want
+                    What I Wish For
                 </h2>
 
                 {letterContent.future.paragraphs.map((paragraph, index) => (

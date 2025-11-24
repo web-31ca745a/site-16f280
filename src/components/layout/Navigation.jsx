@@ -8,7 +8,7 @@ const tabs = [
     { id: 'growth', label: "I'm Growing" },
     { id: 'love', label: "Why I Love You" },
     { id: 'memories', label: "Our Moments" },
-    { id: 'future', label: "What I Want" },
+    { id: 'future', label: "What I Wish For" },
     { id: 'choice', label: "Your Choice" },
 ];
 
