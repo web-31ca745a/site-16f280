@@ -7,8 +7,48 @@
 - `npm run lint` - Run ESLint (no warnings allowed)
 - No test suite configured
 
-## Repo Remote
-- Current remote: `origin` at `http://192.168.50.117:30008/imakesound/bella-apology-site.git` (master branch)
+## Repo Remotes
+- **Local Git Server**: `origin` at `http://192.168.50.117:30008/imakesound/bella-apology-site.git` (master branch)
+- **GitHub (Public Hosting)**: `github` at `https://github.com/web-31ca745a/site-16f280.git` (master branch)
+  - Live site: `https://web-31ca745a.github.io/site-16f280/`
+  - Uses GitHub Pages (served from `gh-pages` branch)
+  - **Random repo/username for privacy** - virtually unfindable
+
+## Deployment Workflow
+
+### Development
+```bash
+npm run dev  # Local development server
+```
+
+### Deploy to GitHub Pages
+1. **Build and Deploy**:
+   ```bash
+   npm run build
+   npx gh-pages -d dist --repo https://TOKEN@github.com/web-31ca745a/site-16f280.git
+   ```
+   - **Ask user for GitHub Personal Access Token** (do not store in repo)
+   - This deploys to `gh-pages` branch (what GitHub Pages serves)
+
+2. **Commit Source Changes**:
+   ```bash
+   git add -A
+   git commit -m "Your commit message"
+   git push https://TOKEN@github.com/web-31ca745a/site-16f280.git master
+   ```
+   - This updates the `master` branch source code
+
+3. **Wait 1-2 minutes** for GitHub Pages to rebuild and deploy
+
+### Important Notes
+- **Asset Paths**: All paths must be relative (`./images/...`, `./audio/...`) not absolute (`/images/...`)
+  - This is because the site is hosted at `/site-16f280/` subdirectory
+  - `vite.config.js` has `base: './'` for relative path support
+- **File Size Limits**: 
+  - GitHub has 100 MB file limit per file (soft limit 50 MB with warnings)
+  - Current videos: `coqueta_63mb.mp4` (63 MB), `perla_40mb.mp4` (40 MB)
+  - Total repo size should stay under 1 GB
+- **Hard Refresh**: Users may need Ctrl+Shift+R after deployments to clear cache
 
 ## Environment Variables
 - `VITE_HIDE_TEXT` - Set to `'true'` in `.env` to hide personal text content (for sharing preview)
