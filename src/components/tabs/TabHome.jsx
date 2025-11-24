@@ -13,13 +13,11 @@ const TabHome = () => {
         >
             <div className="w-full max-w-4xl cosmic-card hand-border space-y-8">
                 <div className="aspect-video bg-brutal-black relative overflow-hidden border-2 border-white/20 rounded-soft shadow-inner">
-                    {/* Placeholder for Intro Video */}
                     <video
                         className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
                         controls
-                        poster="./images/video-poster.jpg"
                     >
-                        <source src="./videos/intro.mp4" type="video/mp4" />
+                        <source src="./intro-video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
