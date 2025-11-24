@@ -2,7 +2,7 @@ export const polaroids = {
     home: [
         {
             id: 'home-1',
-            image: "/images/polaroids/IMG_20251121_135225_990.jpg",
+            image: "./images/polaroids/IMG_20251121_135225_990.jpg",
             caption: "Sunset glow",
             initialX: -140,
             initialY: 10,
@@ -10,7 +10,7 @@ export const polaroids = {
         },
         {
             id: 'home-2',
-            image: "/images/polaroids/Screenshot_20241126-013719.webp",
+            image: "./images/polaroids/Screenshot_20241126-013719.webp",
             caption: "Late night smile",
             initialX: 760,
             initialY: 120,
@@ -18,7 +18,7 @@ export const polaroids = {
         },
         {
             id: 'home-3',
-            image: "/images/polaroids/Screenshot_20240726-220423.webp",
+            image: "./images/polaroids/Screenshot_20240726-220423.webp",
             caption: "Cozy selfie",
             initialX: -90,
             initialY: 420,
@@ -28,7 +28,7 @@ export const polaroids = {
     tab4: [ // Why I Love You tab
         {
             id: 1,
-            image: "/images/polaroids/photo1.jpg",
+            image: "./images/polaroids/photo1.jpg",
             caption: "Your crochet art",
             initialX: 50,
             initialY: 20,
@@ -36,7 +36,7 @@ export const polaroids = {
         },
         {
             id: 2,
-            image: "/images/polaroids/photo2.jpg",
+            image: "./images/polaroids/photo2.jpg",
             caption: "That Walmart day ❤️",
             initialX: 250,
             initialY: 80,
@@ -44,7 +44,7 @@ export const polaroids = {
         },
         {
             id: 3,
-            image: "/images/polaroids/photo3.jpg",
+            image: "./images/polaroids/photo3.jpg",
             caption: "Us",
             initialX: 450,
             initialY: 40,
@@ -52,7 +52,7 @@ export const polaroids = {
         },
         {
             id: 4,
-            image: "/images/polaroids/photo4.jpg",
+            image: "./images/polaroids/photo4.jpg",
             caption: "Your painting",
             initialX: 100,
             initialY: 300,
@@ -62,7 +62,7 @@ export const polaroids = {
     tab5: [ // What I Wish For tab
         {
             id: 10,
-            image: "/images/polaroids/game-cover.jpg",
+            image: "./images/polaroids/game-cover.jpg",
             caption: "Games to play together",
             initialX: 120,
             initialY: 60,
@@ -70,7 +70,7 @@ export const polaroids = {
         },
         {
             id: 11,
-            image: "/images/polaroids/movie-poster.jpg",
+            image: "./images/polaroids/movie-poster.jpg",
             caption: "Movie night?",
             initialX: 360,
             initialY: 80,
@@ -78,7 +78,7 @@ export const polaroids = {
         },
         {
             id: 12,
-            image: "/images/polaroids/labyrinth.webp",
+            image: "./images/polaroids/labyrinth.webp",
             caption: "Labyrinth night",
             initialX: 140,
             initialY: 200,
@@ -86,7 +86,7 @@ export const polaroids = {
         },
         {
             id: 13,
-            image: "/images/polaroids/lastofus2.webp",
+            image: "./images/polaroids/lastofus2.webp",
             caption: "TLOU Pt.2",
             initialX: 420,
             initialY: 240,
@@ -94,7 +94,7 @@ export const polaroids = {
         },
         {
             id: 14,
-            image: "/images/polaroids/littlenightmares3.webp",
+            image: "./images/polaroids/littlenightmares3.webp",
             caption: "Little Nightmares 3",
             initialX: 560,
             initialY: 360,
@@ -102,7 +102,7 @@ export const polaroids = {
         },
         {
             id: 15,
-            image: "/images/polaroids/mariokart8.webp",
+            image: "./images/polaroids/mariokart8.webp",
             caption: "Mario Ka- maybe not this one",
             initialX: 200,
             initialY: 440,
@@ -110,7 +110,7 @@ export const polaroids = {
         },
         {
             id: 16,
-            image: "/images/polaroids/prisoner_azkaban.webp",
+            image: "./images/polaroids/prisoner_azkaban.webp",
             caption: "Prisoner of Azkaban",
             initialX: 460,
             initialY: 520,

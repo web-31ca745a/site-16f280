@@ -41,7 +41,7 @@ export const letterContent = {
             "I still want to do those things **with you**, even now I know there's games I'll never play unless I can play them with you, whenever I see an interesting looking movie my first thought is still that I want to watch it with you.",
             "I'll be honest, I spent a lot of this month trying to figure out how to \"win\" you back but that was really immature, I hurt you way too much, you don't deserve to be with the avoidant version of me, you really do deserve better but __I still hope I can be that person for you.__",
             "I want to talk about what we both really want, even when it's hard, even when it hurts. No more avoiding things like I did before, and I want to prove that when times get bad, I'll communicate instead of shutting down.",
-            "I want to introduce you to my culture, to dance with you. There's this song, {{video:/coqueta_63mb.mp4,/perla_40mb.mp4|\"COQUETA\"}} that I've sent to you in memes before. **I want to learn to dance it with you someday.**",
+            "I want to introduce you to my culture, to dance with you. There's this song, {{video:./coqueta_63mb.mp4,./perla_40mb.mp4|\"COQUETA\"}} that I've sent to you in memes before. **I want to learn to dance it with you someday.**",
             "I'm going to keep working on myself because it's what I need to do whether you ever take me back or not. I know the distance is hard, I hate it too. But I'm graduating soon, learning to drive, and I'll get a job so I can visit you multiple times next year. I want to meet your family. I want you to meet mine. __I have real plans to make this work, not just words.__"
         ]
     },

@@ -17,9 +17,9 @@ const TabHome = () => {
                     <video
                         className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
                         controls
-                        poster="/images/video-poster.jpg"
+                        poster="./images/video-poster.jpg"
                     >
-                        <source src="/videos/intro.mp4" type="video/mp4" />
+                        <source src="./videos/intro.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>

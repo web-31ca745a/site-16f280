@@ -38,7 +38,7 @@ const TabFuture = () => {
                 <h3 className="text-2xl font-hand text-center mb-6 text-lis-dark bg-lis-yellow/60 backdrop-blur-sm border-2 border-lis-dark/20 shadow-soft inline-block px-6 py-3 font-bold mx-auto block w-fit rounded-soft">
                     Let's draw something new...
                 </h3>
-                <DrawTogether baseImage="/images/our-drawing.png" />
+                <DrawTogether baseImage="./images/our-drawing.png" />
             </div>
         </motion.div>
     );

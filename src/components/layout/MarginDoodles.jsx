@@ -2,13 +2,13 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const butterflies = [
-    '/images/decor/doodlebutterfly1.svg',
-    '/images/decor/doodlebutterfly2.svg',
-    '/images/decor/doodlebutterfly3.svg',
-    '/images/decor/doodlebutterfly4.svg'
+    './images/decor/doodlebutterfly1.svg',
+    './images/decor/doodlebutterfly2.svg',
+    './images/decor/doodlebutterfly3.svg',
+    './images/decor/doodlebutterfly4.svg'
 ];
 
-const starryDoodle = '/images/decor/starry-doodle-svgrepo-com.svg';
+const starryDoodle = './images/decor/starry-doodle-svgrepo-com.svg';
 
 const doodlePaths = {
     home: [
@@ -50,47 +50,47 @@ const doodlePaths = {
 const doodleImages = {
     home: {
         left: [
-            { src: '/images/polaroids/IMG_20251121_135225_990.jpg', alt: 'First night', caption: 'first night' },
-            { src: '/images/polaroids/Screenshot_20240726-220423.webp', alt: 'Us sketch', caption: 'us' }
+            { src: './images/polaroids/IMG_20251121_135225_990.jpg', alt: 'First night', caption: 'first night' },
+            { src: './images/polaroids/Screenshot_20240726-220423.webp', alt: 'Us sketch', caption: 'us' }
         ],
         right: [
-            { src: '/images/polaroids/Screenshot_20241126-013719.webp', alt: 'Me + you', caption: 'me + you' }
+            { src: './images/polaroids/Screenshot_20241126-013719.webp', alt: 'Me + you', caption: 'me + you' }
         ]
     },
     love: {
         left: [
-            { src: '/images/her-kisses.webp', alt: 'Her with kiss marks', caption: 'Beautiful' },
-            { src: '/images/her-beanie.webp', alt: 'Her in orange beanie', caption: 'So cute' },
-            { src: '/images/her-photo.webp', alt: 'Her photo', caption: 'Gorgeous' },
-            { src: '/images/her-painting-aurora.webp', alt: 'Aurora painting', caption: 'Her painting' }
+            { src: './images/her-kisses.webp', alt: 'Her with kiss marks', caption: 'Beautiful' },
+            { src: './images/her-beanie.webp', alt: 'Her in orange beanie', caption: 'So cute' },
+            { src: './images/her-photo.webp', alt: 'Her photo', caption: 'Gorgeous' },
+            { src: './images/her-painting-aurora.webp', alt: 'Aurora painting', caption: 'Her painting' }
         ],
         right: [
-            { src: '/images/doodles/colored-animals.webp', alt: 'Colorful character doodles', caption: 'Doodles' },
-            { src: '/images/doodles/sketch-animals.webp', alt: 'Sketch character doodles', caption: 'Sketches' },
-            { src: '/images/doodles/more-doodles.webp', alt: 'More doodles', caption: 'More art' },
-            { src: '/images/her-sketches-nature.webp', alt: 'Nature sketches', caption: 'Her art' }
+            { src: './images/doodles/colored-animals.webp', alt: 'Colorful character doodles', caption: 'Doodles' },
+            { src: './images/doodles/sketch-animals.webp', alt: 'Sketch character doodles', caption: 'Sketches' },
+            { src: './images/doodles/more-doodles.webp', alt: 'More doodles', caption: 'More art' },
+            { src: './images/her-sketches-nature.webp', alt: 'Nature sketches', caption: 'Her art' }
         ]
     },
     memories: {
         left: [
-            { src: '/images/memories/sleepy-call-landscape.webp', alt: 'Her asleep on call', caption: 'sleepy call' },
-            { src: '/images/memories/minecraft-base.webp', alt: 'Minecraft base', caption: 'our base' },
-            { src: '/images/memories/fruit-goggles-2.webp', alt: 'Fruit by the foot glasses', caption: 'fruit goggles' }
+            { src: './images/memories/sleepy-call-landscape.webp', alt: 'Her asleep on call', caption: 'sleepy call' },
+            { src: './images/memories/minecraft-base.webp', alt: 'Minecraft base', caption: 'our base' },
+            { src: './images/memories/fruit-goggles-2.webp', alt: 'Fruit by the foot glasses', caption: 'fruit goggles' }
         ],
         right: [
-            { src: '/images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bunny and bedroom', caption: 'bunny room' },
-            { src: '/images/memories/minecraft-house-2.webp', alt: 'Another Minecraft house we built', caption: 'another home' }
+            { src: './images/memories/minecraft-bunny-bedroom.webp', alt: 'Minecraft bunny and bedroom', caption: 'bunny room' },
+            { src: './images/memories/minecraft-house-2.webp', alt: 'Another Minecraft house we built', caption: 'another home' }
         ]
     },
     future: {
         left: [
-            { src: '/images/polaroids/labyrinth.webp', alt: 'Labyrinth movie night', caption: 'Labyrinth night' },
-            { src: '/images/polaroids/lastofus2.webp', alt: 'The Last of Us Part II', caption: 'TLOU Pt.2' },
-            { src: '/images/polaroids/mariokart8.webp', alt: 'Mario Kart 8 cover', caption: 'Mario Ka- maybe not this one' }
+            { src: './images/polaroids/labyrinth.webp', alt: 'Labyrinth movie night', caption: 'Labyrinth night' },
+            { src: './images/polaroids/lastofus2.webp', alt: 'The Last of Us Part II', caption: 'TLOU Pt.2' },
+            { src: './images/polaroids/mariokart8.webp', alt: 'Mario Kart 8 cover', caption: 'Mario Ka- maybe not this one' }
         ],
         right: [
-            { src: '/images/polaroids/littlenightmares3.webp', alt: 'Little Nightmares 3 cover', caption: 'Little Nightmares 3' },
-            { src: '/images/polaroids/prisoner_azkaban.webp', alt: 'Prisoner of Azkaban cover', caption: 'Prisoner of Azkaban' }
+            { src: './images/polaroids/littlenightmares3.webp', alt: 'Little Nightmares 3 cover', caption: 'Little Nightmares 3' },
+            { src: './images/polaroids/prisoner_azkaban.webp', alt: 'Prisoner of Azkaban cover', caption: 'Prisoner of Azkaban' }
         ]
     }
 };

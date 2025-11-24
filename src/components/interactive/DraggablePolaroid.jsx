@@ -3,10 +3,10 @@ import Draggable from 'react-draggable';
 import { clsx } from 'clsx';
 
 const butterflies = [
-    '/images/decor/doodlebutterfly1.svg',
-    '/images/decor/doodlebutterfly2.svg',
-    '/images/decor/doodlebutterfly3.svg',
-    '/images/decor/doodlebutterfly4.svg'
+    './images/decor/doodlebutterfly1.svg',
+    './images/decor/doodlebutterfly2.svg',
+    './images/decor/doodlebutterfly3.svg',
+    './images/decor/doodlebutterfly4.svg'
 ];
 
 const DraggablePolaroid = ({ image, caption, initialX, initialY, rotation, id }) => {

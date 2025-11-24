@@ -97,7 +97,7 @@ const CassettePlayer = () => {
                             {/* Butterfly SVG on top left corner */}
                             <div className="absolute -left-28 -top-36 w-36 h-36 pointer-events-none z-10">
                                 <img 
-                                    src="/images/decor/cassetefly.svg" 
+                                    src="./images/decor/cassetefly.svg" 
                                     alt="Butterfly decoration" 
                                     className="w-full h-full object-contain"
                                 />

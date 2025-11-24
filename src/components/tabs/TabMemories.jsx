@@ -30,9 +30,9 @@ const MemoryPhoto = ({ src, alt, caption, side = 'left' }) => {
 
 const MinecraftGallery = () => {
     const shots = [
-        { src: '/images/memories/minecraft-house-exterior.webp', alt: 'Our Minecraft house exterior', caption: 'our house' },
-        { src: '/images/memories/minecraft-house-interior.webp', alt: 'Inside our Minecraft house', caption: 'inside our home' },
-        { src: '/images/memories/minecraft-lilypad-garden.webp', alt: 'Lilypad shaped garden', caption: 'lilypad garden' }
+        { src: './images/memories/minecraft-house-exterior.webp', alt: 'Our Minecraft house exterior', caption: 'our house' },
+        { src: './images/memories/minecraft-house-interior.webp', alt: 'Inside our Minecraft house', caption: 'inside our home' },
+        { src: './images/memories/minecraft-lilypad-garden.webp', alt: 'Lilypad shaped garden', caption: 'lilypad garden' }
     ];
 
     return (
@@ -64,19 +64,19 @@ const TabMemories = () => {
 
     const inlinePhotos = {
         1: {
-            src: '/images/memories/sleepy-call-portrait.webp',
+            src: './images/memories/sleepy-call-portrait.webp',
             alt: 'Her asleep on a Discord call',
             caption: 'falling asleep with me on call',
             side: 'left'
         },
         6: {
-            src: '/images/memories/fruit-goggles-1.webp',
+            src: './images/memories/fruit-goggles-1.webp',
             alt: 'Fruit by the Foot worn as glasses',
             caption: 'fruit by the foot goggles',
             side: 'right'
         },
         8: {
-            src: '/images/memories/steamdeck-first-day.webp',
+            src: './images/memories/steamdeck-first-day.webp',
             alt: 'Her playing on my Steam Deck the day we met',
             caption: 'the day we met',
             side: 'left'
