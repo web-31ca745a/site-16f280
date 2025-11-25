@@ -1,11 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
 import FormattedText from '../utils/FormattedText';
 
 const TabFuture = () => {
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
+    const [showLogistics, setShowLogistics] = useState(false);
     
     return (
         <motion.div
@@ -32,6 +34,33 @@ const TabFuture = () => {
                         {hideText ? '████████████████████' : <FormattedText text={paragraph} />}
                     </motion.p>
                 ))}
+
+                {/* Toggleable Logistics Section */}
+                <div className="mt-8 border-t-2 border-white/10 pt-6">
+                    <button
+                        onClick={() => setShowLogistics(!showLogistics)}
+                        className="w-full flex items-center justify-center gap-2 text-xl font-hand text-lis-blue/80 hover:text-lis-blue transition-colors font-bold"
+                    >
+                        <span className="italic">boring logistic stuff</span>
+                        {showLogistics ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </button>
+                    
+                    <AnimatePresence>
+                        {showLogistics && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden"
+                            >
+                                <p className="text-2xl leading-[36px] text-lis-light/90 font-hand font-bold mt-6 drop-shadow-sm bg-lis-dark/20 p-6 rounded-soft border border-white/10">
+                                    Minimum wage in California is $34,320 a year at $16.50, but most places pay more than that. In six months I can comfortably save up $10k as I have low expenses, even if I visit you many times during that period. Once I have that saved up, I can come live with you for a bit and we can decide if it's what you want.
+                                </p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
             </div>
 
             <div className="relative py-8">
