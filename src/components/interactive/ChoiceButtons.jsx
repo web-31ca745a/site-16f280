@@ -34,18 +34,6 @@ const ChoiceButtons = () => {
         window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
     };
 
-    const handleAudioPlay = () => {
-        window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
-    };
-
-    const handleAudioPause = () => {
-        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
-    };
-
-    const handleAudioEnded = () => {
-        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
-    };
-
     const closeVideo = () => {
         window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
         setShowVideo(null);
@@ -56,7 +44,6 @@ const ChoiceButtons = () => {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
-        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
         setShowAudio(false);
     };
 
@@ -152,9 +139,6 @@ const ChoiceButtons = () => {
                                     ref={audioRef}
                                     controls 
                                     className="w-full"
-                                    onPlay={handleAudioPlay}
-                                    onPause={handleAudioPause}
-                                    onEnded={handleAudioEnded}
                                 >
                                     <source src="./noicant.wav" type="audio/wav" />
                                     Your browser does not support the audio element.
