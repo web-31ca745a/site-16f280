@@ -52,7 +52,7 @@ export const letterContent = {
             "Trying means talking consistently, both of us putting in effort, being honest about how we're feeling, slowly rebuilding trust. Not jumping back into a relationship right away, but genuinely seeing if we can grow together.",
             "If you 100% can't see yourself with me, I'm ready to let go, but I need to know I gave it my best try.",
             "So my question is simple: __Is there any part of you that wants to try?__ I'm ready to put in the work, to show up differently. But I can't do it alone, I need you to meet me partway. If yes, I'm all in. If no, I'll accept that and let you go.",
-            "You don't have to decide right this second. Take two weeks to really think about it, about what you want, about whether you believe I can actually change, about whether you're willing to give this a chance. We can talk during that time if you have questions."
+            "You don't have to decide right this second. Take up to two weeks if you really need to, about what you want, about whether you believe I can actually change, about whether you're willing to give this a chance. We can talk during that time if you have questions."
         ]
     }
 };
