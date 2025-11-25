@@ -3,6 +3,18 @@ import { motion } from 'framer-motion';
 import ConstellationGame from '../interactive/ConstellationGame';
 
 const TabHome = () => {
+    const handleVideoPlay = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+    };
+
+    const handleVideoPause = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
+    const handleVideoEnded = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -16,6 +28,9 @@ const TabHome = () => {
                     <video
                         className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
                         controls
+                        onPlay={handleVideoPlay}
+                        onPause={handleVideoPause}
+                        onEnded={handleVideoEnded}
                     >
                         <source src="./intro-video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.

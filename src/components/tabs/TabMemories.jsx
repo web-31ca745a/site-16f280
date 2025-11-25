@@ -91,16 +91,6 @@ const TabMemories = () => {
             transition={{ duration: 0.5 }}
             className="w-full pb-12 px-0 md:px-4 space-y-10"
         >
-            {/* Audio Player Test */}
-            {showPlayer && (
-                <div className="max-w-4xl mx-auto mb-6">
-                    <AestheticPlayer 
-                        track={{ src: '/audio/Syd Matters - Obstacles.mp3' }}
-                        onClose={() => setShowPlayer(false)}
-                    />
-                </div>
-            )}
-
             <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:rotate-1">
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] pt-6 drop-shadow-md">
                     What I Miss About Us
@@ -138,6 +128,16 @@ const TabMemories = () => {
                     );
                 })}
             </div>
+
+            {/* Audio Player at Bottom */}
+            {showPlayer && (
+                <div className="max-w-4xl mx-auto mt-10">
+                    <AestheticPlayer 
+                        track={{ src: './whatimiss.wav' }}
+                        onClose={() => setShowPlayer(false)}
+                    />
+                </div>
+            )}
         </motion.div>
     );
 };

@@ -158,11 +158,19 @@ const AestheticPlayer = ({ track, onClose }) => {
         setIsPlaying(false);
         setProgress(0);
         setCurrentTime(0);
+        // Notify cassette player to restore volume when track ends
+        window.dispatchEvent(new CustomEvent('aestheticPlayerStopped'));
       }
     });
 
     return () => {
-      if (soundRef.current) soundRef.current.unload();
+      if (soundRef.current) {
+        // If player is playing when unmounting, notify cassette to restore volume
+        if (soundRef.current.playing()) {
+          window.dispatchEvent(new CustomEvent('aestheticPlayerStopped'));
+        }
+        soundRef.current.unload();
+      }
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [track]);
@@ -198,8 +206,12 @@ const AestheticPlayer = ({ track, onClose }) => {
     
     if (isPlaying) {
       soundRef.current.pause();
+      // Notify cassette player to restore volume
+      window.dispatchEvent(new CustomEvent('aestheticPlayerStopped'));
     } else {
       soundRef.current.play();
+      // Notify cassette player to lower volume
+      window.dispatchEvent(new CustomEvent('aestheticPlayerStarted'));
     }
     setIsPlaying(!isPlaying);
   };

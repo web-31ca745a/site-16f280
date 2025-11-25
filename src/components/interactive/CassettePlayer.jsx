@@ -11,6 +11,7 @@ const CassettePlayer = () => {
     const [sound, setSound] = useState(null);
     const [isMuted, setIsMuted] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
+    const [isDucked, setIsDucked] = useState(false); // Track if volume is lowered
 
     // Check for mobile on mount to default to closed
     useEffect(() => {
@@ -18,6 +19,51 @@ const CassettePlayer = () => {
             setIsOpen(false);
         }
     }, []);
+
+    // Listen for aesthetic player events to duck/restore volume
+    useEffect(() => {
+        const handleAestheticStart = () => {
+            setIsDucked(true);
+            if (sound) {
+                sound.volume(0.15); // Lower to 15% (ducked volume)
+            }
+        };
+
+        const handleAestheticStop = () => {
+            setIsDucked(false);
+            if (sound) {
+                sound.volume(0.5); // Restore to 50% (normal volume)
+            }
+        };
+
+        // Listen for video play/pause events to pause/resume cassette
+        const handleVideoPlay = () => {
+            if (sound && isPlaying) {
+                sound.pause();
+                // Store that we were playing before video started
+                sound._wasPlayingBeforeVideo = true;
+            }
+        };
+
+        const handleVideoPause = () => {
+            if (sound && sound._wasPlayingBeforeVideo) {
+                sound.play();
+                sound._wasPlayingBeforeVideo = false;
+            }
+        };
+
+        window.addEventListener('aestheticPlayerStarted', handleAestheticStart);
+        window.addEventListener('aestheticPlayerStopped', handleAestheticStop);
+        window.addEventListener('videoPlayerStarted', handleVideoPlay);
+        window.addEventListener('videoPlayerStopped', handleVideoPause);
+
+        return () => {
+            window.removeEventListener('aestheticPlayerStarted', handleAestheticStart);
+            window.removeEventListener('aestheticPlayerStopped', handleAestheticStop);
+            window.removeEventListener('videoPlayerStarted', handleVideoPlay);
+            window.removeEventListener('videoPlayerStopped', handleVideoPause);
+        };
+    }, [sound, isPlaying]);
 
     const currentTrack = audioTracks[currentTrackIndex];
 

@@ -13,6 +13,25 @@ const FormattedText = ({ text, className = "" }) => {
     
     // Check if text should be hidden (for preview sharing)
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
+
+    // Handle video play/pause events
+    const handleVideoPlay = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+    };
+
+    const handleVideoPause = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
+    const handleVideoEnded = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
+    // Cleanup when video modal closes
+    const closeVideo = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+        setShowVideo(null);
+    };
     
     if (hideText) {
         return <span className={className}>████████████████████</span>;
@@ -101,14 +120,14 @@ const FormattedText = ({ text, className = "" }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[9999] flex items-center justify-center bg-brutal-black/90 p-4 overflow-y-auto"
-                        onClick={() => setShowVideo(null)}
+                        onClick={closeVideo}
                     >
                         <div 
                             className="relative w-full max-w-4xl bg-lis-white border-2 border-lis-dark/30 shadow-soft-lg p-4 rounded-soft my-auto"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
-                                onClick={() => setShowVideo(null)}
+                                onClick={closeVideo}
                                 className="absolute -top-12 right-0 bg-lis-purple text-brutal-white font-hand font-bold border-2 border-lis-dark/40 px-4 py-2 hover:bg-lis-pink rounded-soft"
                             >
                                 Close
@@ -116,7 +135,15 @@ const FormattedText = ({ text, className = "" }) => {
                             <div className="space-y-4">
                                 {(Array.isArray(showVideo) ? showVideo : [showVideo]).map((videoSrc, index) => (
                                     <div key={index} className="aspect-video bg-brutal-black border-2 border-lis-dark/30 flex items-center justify-center rounded-soft overflow-hidden">
-                                        <video src={videoSrc} controls autoPlay={index === 0} className="w-full h-full" />
+                                        <video 
+                                            src={videoSrc} 
+                                            controls 
+                                            autoPlay={index === 0} 
+                                            className="w-full h-full"
+                                            onPlay={handleVideoPlay}
+                                            onPause={handleVideoPause}
+                                            onEnded={handleVideoEnded}
+                                        />
                                     </div>
                                 ))}
                             </div>
