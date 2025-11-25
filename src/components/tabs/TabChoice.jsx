@@ -5,6 +5,18 @@ import ChoiceButtons from '../interactive/ChoiceButtons';
 import FormattedText from '../utils/FormattedText';
 
 const TabChoice = () => {
+    const handleVideoPlay = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+    };
+
+    const handleVideoPause = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
+    const handleVideoEnded = () => {
+        window.dispatchEvent(new CustomEvent('videoPlayerStopped'));
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -14,11 +26,18 @@ const TabChoice = () => {
             className="w-full max-w-4xl mx-auto space-y-8 pb-12 px-0 md:px-4"
         >
             <div className="cosmic-card hand-border space-y-0 max-w-4xl mx-auto transform rotate-0 md:-rotate-1">
-                {/* Video Box - Empty for now */}
+                {/* Outro Video */}
                 <div className="aspect-video bg-brutal-black relative overflow-hidden border-2 border-white/20 rounded-soft shadow-inner mb-8">
-                    <div className="w-full h-full flex items-center justify-center">
-                        <p className="text-lis-light font-hand text-2xl opacity-50">Video placeholder</p>
-                    </div>
+                    <video
+                        className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                        controls
+                        onPlay={handleVideoPlay}
+                        onPause={handleVideoPause}
+                        onEnded={handleVideoEnded}
+                    >
+                        <source src="./outro_compressed.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <h2 className="text-4xl font-hand text-white text-center mb-8 font-bold leading-[32px] drop-shadow-md">
