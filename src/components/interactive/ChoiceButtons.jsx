@@ -99,7 +99,7 @@ const ChoiceButtons = () => {
                             </button>
                             <div className="aspect-video bg-brutal-black border-2 border-lis-dark/30 flex items-center justify-center rounded-soft overflow-hidden">
                                 <video 
-                                    src={`/videos/response-${showVideo}.mp4`} 
+                                    src="./yesican_shrunk.mp4"
                                     controls 
                                     autoPlay 
                                     className="w-full h-full"
