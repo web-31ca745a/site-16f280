@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
 import FormattedText from '../utils/FormattedText';
+import AestheticPlayer from '../interactive/AestheticPlayer';
 
 const TabFuture = () => {
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
@@ -60,6 +61,12 @@ const TabFuture = () => {
                             </motion.div>
                         )}
                     </AnimatePresence>
+                </div>
+
+                <div className="max-w-3xl mx-auto mt-8">
+                    <AestheticPlayer 
+                        track={{ src: './whatiwant.wav' }}
+                    />
                 </div>
             </div>
 
