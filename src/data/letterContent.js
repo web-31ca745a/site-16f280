@@ -47,7 +47,7 @@ export const letterContent = {
     },
     choice: {
         paragraphs: [
-            "I still think you're the love of my life, I want to make all the hopes and dreams we had in the polaroids come true.",
+            "I still think you're the love of my life, I want to make all the hopes and dreams we had in the polaroids come true. That's why I don't want to give up and I don't want to let anything, not even distance, stop us.",
             "**I still love you bella**, if you allow me to i would love to get to know you again, to try and build something new with you, something stronger.",
             "I want to keep talking to you, to fall in love with you all over again. We can take things slow, get to know each other again. At worst maybe we'll realize it's not going to work out, but at best we can build something stronger than we ever had before.",
             "Trying means talking consistently, both of us putting in effort, being honest about how we're feeling, slowly rebuilding trust. Not jumping back into a relationship right away, but genuinely seeing if we can grow together.",
