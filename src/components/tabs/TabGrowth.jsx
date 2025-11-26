@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { letterContent } from '../../data/letterContent';
 import FormattedText from '../utils/FormattedText';
+import AestheticPlayer from '../interactive/AestheticPlayer';
 
 const TabGrowth = () => {
     return (
@@ -29,6 +30,12 @@ const TabGrowth = () => {
                         <FormattedText text={paragraph} />
                     </motion.p>
                 ))}
+            </div>
+
+            <div className="max-w-3xl mx-auto mt-8">
+                <AestheticPlayer 
+                    track={{ src: './imgrowing.wav' }}
+                />
             </div>
         </motion.div>
     );
