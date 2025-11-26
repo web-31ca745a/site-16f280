@@ -36,6 +36,12 @@ const TabFuture = () => {
                     </motion.p>
                 ))}
 
+                <div className="max-w-3xl mx-auto mb-8">
+                    <AestheticPlayer 
+                        track={{ src: './whatiwant.wav' }}
+                    />
+                </div>
+
                 {/* Toggleable Logistics Section */}
                 <div className="mt-8 border-t-2 border-white/10 pt-6">
                     <button
@@ -61,12 +67,6 @@ const TabFuture = () => {
                             </motion.div>
                         )}
                     </AnimatePresence>
-                </div>
-
-                <div className="max-w-3xl mx-auto mt-8">
-                    <AestheticPlayer 
-                        track={{ src: './whatiwant.wav' }}
-                    />
                 </div>
             </div>
 
