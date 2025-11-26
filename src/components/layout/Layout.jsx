@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Starfield from './Starfield';
 import Navigation from './Navigation';
 import MarginDoodles from './MarginDoodles';
 import CassettePlayer from '../interactive/CassettePlayer';
 
 const Layout = ({ children, activeTab, onTabChange }) => {
+    const [focusedImage, setFocusedImage] = useState(null);
+    
     return (
         <div className="min-h-screen relative overflow-hidden font-body text-lis-light">
             <Starfield />
 
             {/* Margin Doodles - Left */}
             <div className="fixed left-0 top-0 h-full w-[25%] hidden lg:block z-10">
-                <MarginDoodles side="left" activeTab={activeTab} />
+                <MarginDoodles side="left" activeTab={activeTab} onImageClick={setFocusedImage} />
             </div>
 
             {/* Top Right Corner Vines SVG */}
@@ -25,7 +28,7 @@ const Layout = ({ children, activeTab, onTabChange }) => {
 
             {/* Margin Doodles - Right */}
             <div className="fixed right-0 top-0 h-full w-[25%] hidden lg:block z-10">
-                <MarginDoodles side="right" activeTab={activeTab} />
+                <MarginDoodles side="right" activeTab={activeTab} onImageClick={setFocusedImage} />
             </div>
 
             {/* Main Content */}
@@ -47,6 +50,57 @@ const Layout = ({ children, activeTab, onTabChange }) => {
             </main>
 
             <CassettePlayer />
+            
+            {/* Modal overlay for focused polaroid - renders at top level */}
+            <AnimatePresence>
+                {focusedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setFocusedImage(null)}
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center pointer-events-auto cursor-pointer p-4"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.5, rotate: -10, opacity: 0 }}
+                            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                            exit={{ scale: 0.5, rotate: 10, opacity: 0 }}
+                            transition={{ type: "spring", duration: 0.5 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative max-w-lg w-full"
+                        >
+                            {/* Large centered polaroid */}
+                            <div className="bg-brutal-white p-4 pb-10 border-4 border-lis-dark/30 shadow-brutal-lg rounded-soft relative">
+                                <div className="bg-lis-mint/50 overflow-hidden border-2 border-lis-dark/20 rounded-soft">
+                                    <img
+                                        src={focusedImage.src}
+                                        alt={focusedImage.alt}
+                                        className="w-full h-auto object-contain select-none"
+                                        draggable="false"
+                                    />
+                                </div>
+                                <p className="font-hand text-lis-dark text-center text-2xl font-bold mt-3 select-none">
+                                    {focusedImage.caption}
+                                </p>
+                                
+                                {/* Close button */}
+                                <button
+                                    onClick={() => setFocusedImage(null)}
+                                    className="absolute -top-3 -right-3 w-10 h-10 bg-lis-pink border-2 border-lis-dark/30 rounded-full shadow-brutal flex items-center justify-center text-white font-bold text-xl hover:scale-110 transition-transform"
+                                    aria-label="Close"
+                                >
+                                    ×
+                                </button>
+                            </div>
+                            
+                            {/* Instruction text */}
+                            <p className="text-center text-white/80 font-hand text-lg mt-4">
+                                Click anywhere to close
+                            </p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

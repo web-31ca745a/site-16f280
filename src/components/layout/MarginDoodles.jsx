@@ -92,10 +92,24 @@ const doodleImages = {
             { src: './images/polaroids/littlenightmares3.webp', alt: 'Little Nightmares 3 cover', caption: 'Little Nightmares 3' },
             { src: './images/polaroids/prisoner_azkaban.webp', alt: 'Prisoner of Azkaban cover', caption: 'Prisoner of Azkaban' }
         ]
+    },
+    choice: {
+        left: [
+            { src: './images/polaroids/choice-1.png', alt: 'Our hopes and dreams', caption: 'our dreams' },
+            { src: './images/polaroids/choice-2.png', alt: 'Our future plans', caption: 'future plans' },
+            { src: './images/polaroids/choice-3.png', alt: 'What we wanted', caption: 'what we wanted' },
+            { src: './images/polaroids/choice-4.png', alt: 'Our wishes', caption: 'our wishes' }
+        ],
+        right: [
+            { src: './images/polaroids/choice-5.png', alt: 'Together forever', caption: 'together' },
+            { src: './images/polaroids/choice-6.png', alt: 'Building our future', caption: 'building us' },
+            { src: './images/polaroids/choice-7.png', alt: 'Our story', caption: 'our story' },
+            { src: './images/polaroids/choice-8.png', alt: 'Making dreams real', caption: 'making it real' }
+        ]
     }
 };
 
-const MarginDoodles = ({ side, activeTab }) => {
+const MarginDoodles = ({ side, activeTab, onImageClick }) => {
     // Check if this tab uses images or SVG paths
     const usesImages = Boolean(doodleImages[activeTab]);
     const doodles = usesImages ? doodleImages[activeTab][side] : (doodlePaths[activeTab] || doodlePaths.home);
@@ -145,6 +159,20 @@ const MarginDoodles = ({ side, activeTab }) => {
             right: [
                 { top: 8, left: 18, rotation: 7 },
                 { top: 30, left: 58, rotation: -9 }
+            ]
+        },
+        choice: {
+            left: [
+                { top: 6, left: 10, rotation: -10 },
+                { top: 26, left: 42, rotation: 9 },
+                { top: 46, left: 18, rotation: -6 },
+                { top: 66, left: 56, rotation: 7 }
+            ],
+            right: [
+                { top: 8, left: 18, rotation: 7 },
+                { top: 30, left: 58, rotation: -9 },
+                { top: 50, left: 26, rotation: 5 },
+                { top: 70, left: 64, rotation: -7 }
             ]
         }
     };
@@ -215,7 +243,11 @@ const MarginDoodles = ({ side, activeTab }) => {
                                     drag
                                     dragMomentum={false}
                                     dragElastic={0.1}
-                                    className="absolute cursor-move z-10 hover:z-50 pointer-events-auto"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onImageClick?.(doodle);
+                                    }}
+                                    className="absolute cursor-pointer z-10 hover:z-50 pointer-events-auto"
                                     style={{
                                         top: `${pos.top}%`,
                                         left: `${pos.left}%`,

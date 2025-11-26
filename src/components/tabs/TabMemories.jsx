@@ -75,6 +75,12 @@ const TabMemories = () => {
             caption: 'fruit by the foot goggles',
             side: 'right'
         },
+        7: {
+            src: './images/memories/first-night.png',
+            alt: 'Our first night together',
+            caption: 'our first night',
+            side: 'right'
+        },
         8: {
             src: './images/memories/steamdeck-first-day.webp',
             alt: 'Her playing on my Steam Deck the day we met',

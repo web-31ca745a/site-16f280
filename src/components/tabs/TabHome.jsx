@@ -47,6 +47,11 @@ const TabHome = () => {
                     <p className="text-xl font-mono text-lis-blue/80 italic">
                         (Explore the tabs above, and don't forget to check the cassette player)
                     </p>
+                    <div className="mt-4 p-4 bg-lis-pink/20 border-2 border-lis-pink/50 rounded-soft">
+                        <p className="text-2xl font-hand font-bold text-lis-pink drop-shadow-md">
+                            ✨ Click the polaroids in the margins to see them up close! ✨
+                        </p>
+                    </div>
                 </div>
             </div>
 
