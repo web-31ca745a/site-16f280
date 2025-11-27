@@ -35,6 +35,7 @@ const TabGrowth = () => {
             <div className="max-w-3xl mx-auto mt-8">
                 <AestheticPlayer 
                     track={{ src: './imgrowing.wav' }}
+                    volume={1.1}
                 />
             </div>
         </motion.div>
