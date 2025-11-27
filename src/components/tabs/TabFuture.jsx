@@ -40,7 +40,7 @@ const TabFuture = () => {
                 <div className="mt-8 mb-8">
                     <AestheticPlayer 
                         track={{ src: './whatiwanttimingfixed.wav' }}
-                        volume={0.8}
+                        volume={0.25}
                     />
                 </div>
 
