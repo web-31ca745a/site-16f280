@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Starfield from '../layout/Starfield';
+import { trackLogin } from '../../utils/tracking';
 
 const LoginGate = ({ onUnlock }) => {
     const [username, setUsername] = useState('');
@@ -48,6 +49,7 @@ const LoginGate = ({ onUnlock }) => {
 
         if (normalizedUser && formattedDate && normalizedUser === expectedUser && formattedDate === expectedPass) {
             localStorage.setItem(storedKey, 'true');
+            trackLogin(); // Track successful login
             onUnlock();
         } else {
             setError("Username hint: that's not my name.");

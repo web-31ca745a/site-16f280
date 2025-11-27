@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Howl } from 'howler';
 import { motion } from 'framer-motion';
 import { Play, Pause } from 'lucide-react';
+import { trackAudioPlay } from '../../utils/tracking';
 
 const AestheticPlayer = ({ track, onClose }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -9,6 +10,7 @@ const AestheticPlayer = ({ track, onClose }) => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [frequencyData, setFrequencyData] = useState(new Array(64).fill(0));
+  const [hasTracked, setHasTracked] = useState(false);
   
   const soundRef = useRef(null);
   const rafRef = useRef(null);
@@ -212,6 +214,13 @@ const AestheticPlayer = ({ track, onClose }) => {
       soundRef.current.play();
       // Notify cassette player to lower volume
       window.dispatchEvent(new CustomEvent('aestheticPlayerStarted'));
+      
+      // Track audio play (only once per session)
+      if (!hasTracked && track?.src) {
+        const trackName = track.src.split('/').pop().replace('.wav', '').replace('.mp3', '');
+        trackAudioPlay(trackName);
+        setHasTracked(true);
+      }
     }
     setIsPlaying(!isPlaying);
   };
