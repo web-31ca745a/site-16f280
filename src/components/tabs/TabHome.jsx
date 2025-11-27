@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ConstellationGame from '../interactive/ConstellationGame';
+import { trackVideoPlay } from '../../utils/tracking';
 
 const TabHome = () => {
+    const [hasTrackedIntroVideo, setHasTrackedIntroVideo] = useState(false);
+
     const handleVideoPlay = () => {
         window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+        if (!hasTrackedIntroVideo) {
+            trackVideoPlay('intro-video');
+            setHasTrackedIntroVideo(true);
+        }
     };
 
     const handleVideoPause = () => {

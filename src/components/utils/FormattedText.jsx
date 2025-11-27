@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackVideoPlay } from '../../utils/tracking';
 
 // Parses text with special formatting markers:
 // **text** = pink highlight
@@ -10,13 +11,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FormattedText = ({ text, className = "" }) => {
     const [showVideo, setShowVideo] = useState(null);
+    const [trackedVideos, setTrackedVideos] = useState(new Set());
     
     // Check if text should be hidden (for preview sharing)
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
 
     // Handle video play/pause events
-    const handleVideoPlay = () => {
+    const handleVideoPlay = (e) => {
         window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+        
+        const videoSrc = e.target.src;
+        const videoName = videoSrc.split('/').pop().replace('.mp4', '');
+        if (!trackedVideos.has(videoName)) {
+            trackVideoPlay(videoName);
+            setTrackedVideos(prev => new Set([...prev, videoName]));
+        }
     };
 
     const handleVideoPause = () => {

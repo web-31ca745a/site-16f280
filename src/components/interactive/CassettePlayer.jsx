@@ -4,6 +4,7 @@ import { audioTracks } from '../../data/audioTracks';
 import { Play, Pause, SkipForward, SkipBack, Volume2, VolumeX, Music, ChevronDown, ChevronUp } from 'lucide-react';
 import { clsx } from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackAudioPlay } from '../../utils/tracking';
 
 const CassettePlayer = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -12,6 +13,7 @@ const CassettePlayer = () => {
     const [isMuted, setIsMuted] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const [isDucked, setIsDucked] = useState(false); // Track if volume is lowered
+    const [trackedTracks, setTrackedTracks] = useState(new Set()); // Track which songs were played
 
     // Check for mobile on mount to default to closed
     useEffect(() => {
@@ -100,6 +102,13 @@ const CassettePlayer = () => {
             sound.pause();
         } else {
             sound.play();
+            
+            // Track cassette play (only once per track)
+            const trackId = currentTrackIndex;
+            if (!trackedTracks.has(trackId)) {
+                trackAudioPlay(`Cassette: ${currentTrack.title}`);
+                setTrackedTracks(prev => new Set([...prev, trackId]));
+            }
         }
         setIsPlaying(!isPlaying);
     };

@@ -94,4 +94,5 @@ export const trackEvent = async (eventName, details = {}) => {
 export const trackLogin = () => trackEvent('Site Unlocked', { '🔓 Status': 'Successfully logged in' });
 export const trackTabChange = (tabName) => trackEvent('Tab Viewed', { '📑 Tab': tabName });
 export const trackAudioPlay = (trackName) => trackEvent('Audio Played', { '🎵 Track': trackName });
+export const trackVideoPlay = (videoName) => trackEvent('Video Played', { '🎬 Video': videoName });
 export const trackDrawing = () => trackEvent('Drawing Interaction', { '🎨 Action': 'Started drawing' });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { trackTabChange } from '../../utils/tracking';
 
 const tabs = [
     { id: 'home', label: 'Home' },
@@ -13,13 +14,19 @@ const tabs = [
 ];
 
 const Navigation = ({ activeTab, onTabChange }) => {
+    const handleTabClick = (tabId) => {
+        const tabLabel = tabs.find(t => t.id === tabId)?.label || tabId;
+        trackTabChange(tabLabel);
+        onTabChange(tabId);
+    };
+
     return (
         <nav className="sticky top-0 z-30 w-full mb-0">
             <div className="flex gap-3 md:gap-2 overflow-x-auto overflow-y-hidden no-scrollbar pb-1">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
-                        onClick={() => onTabChange(tab.id)}
+                        onClick={() => handleTabClick(tab.id)}
                         className={twMerge(
                             "flex-shrink-0 px-4 py-3 font-hand text-base md:text-lg font-bold border-2 border-b-0 transition-all duration-200 rounded-t-lg",
                             activeTab === tab.id

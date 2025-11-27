@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { letterContent } from '../../data/letterContent';
 import ChoiceButtons from '../interactive/ChoiceButtons';
 import FormattedText from '../utils/FormattedText';
+import { trackVideoPlay } from '../../utils/tracking';
 
 const TabChoice = () => {
+    const [hasTrackedOutroVideo, setHasTrackedOutroVideo] = useState(false);
+
     const handleVideoPlay = () => {
         window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+        if (!hasTrackedOutroVideo) {
+            trackVideoPlay('outro_compressed');
+            setHasTrackedOutroVideo(true);
+        }
     };
 
     const handleVideoPause = () => {

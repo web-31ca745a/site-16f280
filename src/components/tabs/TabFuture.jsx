@@ -4,7 +4,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
 import FormattedText from '../utils/FormattedText';
-import AestheticPlayer from '../interactive/AestheticPlayer';
 
 const TabFuture = () => {
     const hideText = import.meta.env.VITE_HIDE_TEXT === 'true';
@@ -35,12 +34,6 @@ const TabFuture = () => {
                         {hideText ? '████████████████████' : <FormattedText text={paragraph} />}
                     </motion.p>
                 ))}
-
-                <div className="max-w-3xl mx-auto mb-8">
-                    <AestheticPlayer 
-                        track={{ src: './whatiwant.wav' }}
-                    />
-                </div>
 
                 {/* Toggleable Logistics Section */}
                 <div className="mt-8 border-t-2 border-white/10 pt-6">

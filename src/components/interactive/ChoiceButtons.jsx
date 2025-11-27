@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import confetti from 'canvas-confetti';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackVideoPlay, trackAudioPlay } from '../../utils/tracking';
 
 const ChoiceButtons = () => {
     const [showVideo, setShowVideo] = useState(null); // 'yes', 'no'
     const [showAudio, setShowAudio] = useState(false);
+    const [hasTrackedYesVideo, setHasTrackedYesVideo] = useState(false);
+    const [hasTrackedNoAudio, setHasTrackedNoAudio] = useState(false);
     const audioRef = useRef(null);
 
     const handleYes = () => {
@@ -24,6 +27,10 @@ const ChoiceButtons = () => {
 
     const handleVideoPlay = () => {
         window.dispatchEvent(new CustomEvent('videoPlayerStarted'));
+        if (!hasTrackedYesVideo) {
+            trackVideoPlay('yesican_shrunk (She said YES!)');
+            setHasTrackedYesVideo(true);
+        }
     };
 
     const handleVideoPause = () => {
@@ -51,8 +58,12 @@ const ChoiceButtons = () => {
     useEffect(() => {
         if (showAudio && audioRef.current) {
             audioRef.current.play();
+            if (!hasTrackedNoAudio) {
+                trackAudioPlay('noicant (She said NO)');
+                setHasTrackedNoAudio(true);
+            }
         }
-    }, [showAudio]);
+    }, [showAudio, hasTrackedNoAudio]);
 
     return (
         <>
