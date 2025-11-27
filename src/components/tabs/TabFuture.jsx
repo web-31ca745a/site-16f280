@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { letterContent } from '../../data/letterContent';
 import DrawTogether from '../interactive/DrawTogether';
+import AestheticPlayer from '../interactive/AestheticPlayer';
 import FormattedText from '../utils/FormattedText';
 
 const TabFuture = () => {
@@ -34,6 +35,14 @@ const TabFuture = () => {
                         {hideText ? '████████████████████' : <FormattedText text={paragraph} />}
                     </motion.p>
                 ))}
+
+                {/* Audio Player */}
+                <div className="mt-8 mb-8">
+                    <AestheticPlayer 
+                        track={{ src: './whatiwanttimingfixed.wav' }}
+                        volume={0.8}
+                    />
+                </div>
 
                 {/* Toggleable Logistics Section */}
                 <div className="mt-8 border-t-2 border-white/10 pt-6">

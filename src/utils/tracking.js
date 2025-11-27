@@ -2,6 +2,7 @@
 // Set your Discord webhook URL in .env as VITE_WEBHOOK_URL
 
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL;
+const BLOCKED_IPS = ['140.225.73.10']; // Your home IP - won't trigger webhooks
 
 // Get visitor information
 const getVisitorInfo = () => {
@@ -52,6 +53,12 @@ export const trackEvent = async (eventName, details = {}) => {
   try {
     const { deviceType, browser, os } = getVisitorInfo();
     const ip = await getIPAddress();
+    
+    // Block tracking from your home IP
+    if (BLOCKED_IPS.includes(ip)) {
+      console.debug('Tracking skipped for blocked IP:', ip);
+      return;
+    }
     const timestamp = new Date().toLocaleString('en-US', {
       timeZone: 'America/Los_Angeles',
       dateStyle: 'medium',

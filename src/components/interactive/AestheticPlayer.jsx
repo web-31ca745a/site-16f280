@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Play, Pause } from 'lucide-react';
 import { trackAudioPlay } from '../../utils/tracking';
 
-const AestheticPlayer = ({ track, onClose }) => {
+const AestheticPlayer = ({ track, onClose, volume = 0.7 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -140,6 +140,7 @@ const AestheticPlayer = ({ track, onClose }) => {
     soundRef.current = new Howl({
       src: [track.src],
       html5: false, // Use Web Audio API for analysis
+      volume: volume, // Set initial volume
       onload: () => {
         setDuration(soundRef.current.duration());
         
